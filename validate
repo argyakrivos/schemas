@@ -79,7 +79,7 @@ Dir.glob("**/*/") do |folder|
       end
     end
   else
-    if !xml_files.empty?
+    if xml_files.any?
       total_files += xml_files.length
       invalid_files += xml_files.length
       files_list = xml_files.map { |f| File.basename(f) }.join(", ")
