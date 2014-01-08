@@ -8,7 +8,7 @@ A repository for all blinkbox books XML schemas, along with example messages.
     > the namespace:
     > `http://schemas.blinkboxbooks.com/events/clients/v1`
     > should be translated to the following directory:
-    > `events/clients/v1` 
+    > `events/clients/v1`
 
 2. Each directory should have **one** schema file called `schema.xsd`.
     > So from the previous example we would have:
@@ -38,12 +38,18 @@ You can install all the dependencies using the `install` command:
 $ bundle install
 ```
 
+Make sure that the script is runnable:
+
+```
+$ chmod +x validate
+```
+
 ## Running the validator
 
 To validate all your XML schemas execute the the following command:
 
 ```
-$ ruby schemas_validator.rb
+$ ./validate
 ```
 
 You can see from the output:

@@ -1,3 +1,6 @@
+#!/usr/bin/env bundle exec ruby
+require "bundler/setup"
+
 require "nokogiri"
 require "colorize"
 
@@ -27,29 +30,39 @@ def validate(folder, xsd_file, xml_file)
     rescue NoMethodError
       # no need to log this one
     end
-
     errors
   end
 end
 
-# for all directories
 total_files = 0
 valid_files = 0
 skipped_files = 0
 invalid_files = 0
 
+# for all directories
 Dir.glob("**/*/") do |folder|
   puts "Going through #{folder}"
+  # if there are multiple schemas
+  xsd_files = Dir[File.join(folder, "*.xsd")]
+  if xsd_files.length > 1
+    total_files += xsd_files.length
+    invalid_files += xsd_files.length
+    files_list = xsd_files.map { |f| File.basename(f) }.join(", ")
+    puts "   Multiple schema files detected (#{files_list}) - marking all as invalid!".colorize(:red)
+    puts "   You should have only one schema file in a directory called: #{SCHEMA_FILE}".colorize(:red)
+    next
+  end
   xsd_file = "#{folder}#{SCHEMA_FILE}"
   if File.exists? xsd_file
-    # all xml files
+    # for all xml files in that directory
     xml_files = Dir.glob("#{folder}*.xml")
+    # if there are no XML files to validate against the schema
     if xml_files.empty?
+      total_files += 1
       skipped_files += 1
       puts "   Skipping #{xsd_file} - could not find any XML files to validate against".colorize(:yellow)
       next
     end
-    total_files += 1
     xml_files.each do |xml_file|
       total_files += 1
       print "   Validating #{xml_file} against #{xsd_file} ... ".colorize(:cyan)
