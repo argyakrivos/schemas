@@ -48,14 +48,14 @@ Dir.glob("**/*/") do |folder|
     total_files += xsd_files.length
     invalid_files += xsd_files.length
     files_list = xsd_files.map { |f| File.basename(f) }.join(", ")
-    puts "   Multiple schema files detected (#{files_list}) - marking all as invalid!".colorize(:red)
+    puts "   Multiple schema files detected (#{files_list}) - marking them as invalid!".colorize(:red)
     puts "   You should have only one schema file in a directory called: #{SCHEMA_FILE}".colorize(:red)
     next
   end
   xsd_file = "#{folder}#{SCHEMA_FILE}"
+  # for all xml files in that directory
+  xml_files = Dir.glob("#{folder}*.xml")
   if File.exists? xsd_file
-    # for all xml files in that directory
-    xml_files = Dir.glob("#{folder}*.xml")
     # if there are no XML files to validate against the schema
     if xml_files.empty?
       total_files += 1
@@ -77,6 +77,14 @@ Dir.glob("**/*/") do |folder|
           puts "      #{msg}".colorize(:red)
         end
       end
+    end
+  else
+    if !xml_files.empty?
+      total_files += xml_files.length
+      invalid_files += xml_files.length
+      files_list = xml_files.map { |f| File.basename(f) }.join(", ")
+      puts "   Found XML files without any schema definition (#{files_list}) - marking them as invalid!".colorize(:red)
+      puts "   You should either remove them or create a schema definition file (#{SCHEMA_FILE})".colorize(:red)
     end
   end
 end
