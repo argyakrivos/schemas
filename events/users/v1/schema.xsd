@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
+           xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+           xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+           targetNamespace="http://schemas.blinkboxbooks.com/events/users/v1"
+           elementFormDefault="qualified"
+           version="1.0">
+
+  <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+             schemaLocation="../../../messaging/routing/v1/schema.xsd"/>
+
+  <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
+             schemaLocation="../../../messaging/versioning/schema.xsd"/>
+
+  <xs:element name="userCreated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="user"/>
+      </xs:sequence>
+      <xs:attribute ref="r:originator"/>
+      <xs:attribute ref="v:version"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="userUpdated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="userId"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="oldUser"/>
+        <xs:element ref="newUser"/>
+      </xs:sequence>
+      <xs:attribute ref="r:originator"/>
+      <xs:attribute ref="v:version"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="timestamp" type="xs:dateTime"/>
+
+  <xs:element name="userId" type="xs:integer"/>
+
+  <xs:element name="id" type="xs:integer"/>
+
+  <xs:element name="username" type="xs:string"/>
+
+  <xs:element name="firstName" type="xs:string"/>
+
+  <xs:element name="lastName" type="xs:string"/>
+
+  <xs:element name="allowMarketingCommunications" type="xs:boolean"/>
+
+  <xs:element name="user" type="fullUserInfo"/>
+
+  <xs:element name="oldUser" type="userInfo"/>
+
+  <xs:element name="newUser" type="userInfo"/>
+
+  <xs:complexType name="userInfo">
+    <xs:sequence>
+      <xs:element ref="username"/>
+      <xs:element ref="firstName"/>
+      <xs:element ref="lastName"/>
+      <xs:element ref="allowMarketingCommunications"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="fullUserInfo">
+    <xs:sequence>
+      <xs:element ref="id"/>
+      <xs:element ref="username"/>
+      <xs:element ref="firstName"/>
+      <xs:element ref="lastName"/>
+      <xs:element ref="allowMarketingCommunications"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
