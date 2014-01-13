@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userCreated xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
-             xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
-             xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
-             r:originator="zuul"
-             v:version="1.0">
+<registered xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
+            xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+            xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+            r:originator="zuul"
+            v:version="1.0">
 
   <timestamp>2013-12-30T19:15:23Z</timestamp>
 
@@ -15,4 +15,4 @@
     <allowMarketingCommunications>true</allowMarketingCommunications>
   </user>
 
-</userCreated>
+</registered>
