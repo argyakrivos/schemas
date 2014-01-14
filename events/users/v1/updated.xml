@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userUpdated xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
-             xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
-             xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
-             r:originator="zuul"
-             v:version="1.0">
+<updated xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
+         xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+         xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+         r:originator="zuul"
+         v:version="1.0">
 
   <userId>123</userId>
   <timestamp>2013-12-30T19:15:23Z</timestamp>
 
-  <oldUser>
+  <old>
     <username>user@domain.com</username>
     <firstName>First Name</firstName>
     <lastName>Last Name</lastName>
     <allowMarketingCommunications>true</allowMarketingCommunications>
-  </oldUser>
+  </old>
 
-  <newUser>
+  <new>
     <username>new_user@domain.com</username>
     <firstName>First Name</firstName>
     <lastName>Last Changed Name</lastName>
     <allowMarketingCommunications>false</allowMarketingCommunications>
-  </newUser>
+  </new>
 
-</userUpdated>
+</updated>

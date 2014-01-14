@@ -13,7 +13,7 @@
   <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
              schemaLocation="../../../messaging/versioning/schema.xsd"/>
 
-  <xs:element name="clientCreated">
+  <xs:element name="registered">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="userId"/>
@@ -25,21 +25,21 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="clientUpdated">
+  <xs:element name="updated">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="userId"/>
         <xs:element ref="clientId"/>
         <xs:element ref="timestamp"/>
-        <xs:element ref="oldClient"/>
-        <xs:element ref="newClient"/>
+        <xs:element ref="old"/>
+        <xs:element ref="new"/>
       </xs:sequence>
       <xs:attribute ref="r:originator"/>
       <xs:attribute ref="v:version"/>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="clientDeleted">
+  <xs:element name="deregistered">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="userId"/>
@@ -69,9 +69,9 @@
 
   <xs:element name="client" type="fullClientInfo"/>
 
-  <xs:element name="oldClient" type="clientInfo"/>
+  <xs:element name="old" type="clientInfo"/>
 
-  <xs:element name="newClient" type="clientInfo"/>
+  <xs:element name="new" type="clientInfo"/>
 
   <xs:complexType name="clientInfo">
     <xs:sequence>
