@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.blinkboxbooks.com/distribution/undistribute/v1"
+           xmlns="http://schemas.blinkboxbooks.com/distribution/undistribute/v1"
+           xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+           xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+           version="1.0">
+
+  <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+             schemaLocation="../../../messaging/routing/v1/schema.xsd"/>
+
+  <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
+             schemaLocation="../../../messaging/versioning/schema.xsd"/>
+
+  <xs:element name="undistribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="book" type="bookReference" minOccurs="1" maxOccurs="1" type="xs:string"/>
+        <xs:element name="reasonList" type="reasonList" minOccurs="1" maxOccurs="1" />
+        <xs:element name="effectiveTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute ref="r:originator"/>
+      <xs:attribute ref="r:timestamp"/>
+      <xs:attribute ref="v:version"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="bookReference">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="ref">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="isbn"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="reasonList">
+    <xs:sequence>
+      <xs:element name="reason" type="reason" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reason">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" type="xs:integer" name="code"/>
+      <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="description"/>
+      <xs:element name="authorizedBy" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entity" minOccurs="1" maxOccurs="1" type="xs:string"/>
+            <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

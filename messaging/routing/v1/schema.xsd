@@ -3,8 +3,9 @@
            xmlns="http://schemas.blinkboxbooks.com/messaging/routing/v1"
            targetNamespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
            elementFormDefault="qualified"
-           version="1.0">
+           version="1.1">
 
   <xs:attribute name="originator" type="xs:string"/>
+  <xs:attribute name="timestamp" type="xs:dateTime"/>
 
 </xs:schema>
