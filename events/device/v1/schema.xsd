@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://schemas.blinkboxbooks.com/events/device/v1"
+        xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+        xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+        targetNamespace="http://schemas.blinkboxbooks.com/events/device/v1"
+        elementFormDefault="qualified">
+
+    <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+                          schemaLocation="../../../messaging/routing/v1/schema.xsd"/>
+
+    <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
+                          schemaLocation="../../../messaging/versioning/schema.xsd"/>
+
+
+    <xs:element name="associated">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="userId" type="xs:integer"/>
+          <xs:element name="clientId" type="xs:integer"/>
+          <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element name="book" type="xs:string"/>
+            <xs:element name="sample" type="xs:string" />
+          </xs:choice>
+          <xs:element name="timestamp" type="xs:dateTime"/>
+        </xs:sequence>
+            <xs:attribute ref="r:originator" />
+            <xs:attribute ref="v:version" />
+      </xs:complexType>
+
+    </xs:element>
+
+</xs:schema>
