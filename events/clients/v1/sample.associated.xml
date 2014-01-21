@@ -3,13 +3,10 @@
              xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
              r:originator="library-service"
              v:version="1.0">
-
+         
     <userId>3246</userId>
-    
     <clientId>2170</clientId>
-   
     <sample>9781780800462</sample>
-    
     <timestamp>2014-01-23T00:15:14Z</timestamp>
 
 </associated>
