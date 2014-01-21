@@ -51,6 +51,22 @@
     </xs:complexType>
   </xs:element>
 
+  <xs:element name="associated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="userId"/>
+        <xs:element ref="clientId"/>
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element name="book" type="xs:string"/>
+          <xs:element name="sample" type="xs:string" />
+        </xs:choice>
+        <xs:element ref="timestamp" />
+      </xs:sequence>
+      <xs:attribute ref="r:originator" />
+      <xs:attribute ref="v:version" />
+    </xs:complexType>
+  </xs:element>
+
   <xs:element name="timestamp" type="xs:dateTime"/>
 
   <xs:element name="userId" type="xs:integer"/>

@@ -1,4 +1,4 @@
-<associated xmlns="http://schemas.blinkboxbooks.com/events/device/v1"
+<associated xmlns="http://schemas.blinkboxbooks.com/events/clients/v1"
              xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
              xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
              r:originator="library-service"
