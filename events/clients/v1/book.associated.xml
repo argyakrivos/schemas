@@ -1,0 +1,12 @@
+<associated xmlns="http://schemas.blinkboxbooks.com/events/clients/v1"
+             xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+             xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+             r:originator="library-service"
+             v:version="1.0">
+
+    <userId>3246</userId>
+    <clientId>2170</clientId>
+    <book>9781780800462</book>
+    <timestamp>2014-01-23T00:15:14Z</timestamp>
+
+</associated>
