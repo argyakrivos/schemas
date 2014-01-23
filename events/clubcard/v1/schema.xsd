@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://schemas.blinkboxbooks.com/events/clubcard/v1"
+           xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+           xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+           targetNamespace="http://schemas.blinkboxbooks.com/events/clubcard/v1"
+           elementFormDefault="qualified"
+           version="1.0">
+
+    <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+               schemaLocation="../../../messaging/routing/v1/schema.xsd"/>
+
+    <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
+               schemaLocation="../../../messaging/versioning/schema.xsd"/>
+
+    <xs:element name="ClubcardMessage">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element ref="userId"/>
+          <xs:element ref="points"/>
+          <xs:element ref="transactions" />
+          <xs:element ref="transactionDate" />
+          <xs:element ref="clubcardNumber" />
+          <xs:element ref="reason" />
+        </xs:sequence>
+        <xs:attribute ref="r:originator" />
+        <xs:attribute ref="v:version" />
+      </xs:complexType>
+    </xs:element>
+
+    <xs:element name="userId" type="xs:integer" />
+    <xs:element name="points" type="xs:integer" />
+    <xs:element name="transactions" type="xs:string" />
+    <xs:element name="transactionDate" type="xs:dateTime" />
+    <xs:element name="clubcardNumber" type="xs:string" />
+    <xs:element name="reason" type="xs:string" />
+
+</xs:schema>
