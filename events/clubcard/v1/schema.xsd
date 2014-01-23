@@ -14,14 +14,14 @@
 
     <xs:element name="ClubcardMessage">
       <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="userId"/>
-        <xs:element ref="points"/>
-        <xs:element ref="transactions" />
-        <xs:element ref="transactionDate" />
-        <xs:element ref="clubcardNumber" />
-        <xs:element ref="reason" />
-      </xs:sequence>
+        <xs:sequence>
+          <xs:element ref="userId"/>
+          <xs:element ref="points"/>
+          <xs:element ref="transactions" />
+          <xs:element ref="transactionDate" />
+          <xs:element ref="clubcardNumber" />
+          <xs:element ref="reason" />
+        </xs:sequence>
       <xs:attribute ref="r:originator" />
       <xs:attribute ref="v:version" />
       </xs:complexType>
