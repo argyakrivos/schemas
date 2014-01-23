@@ -22,8 +22,8 @@
           <xs:element ref="clubcardNumber" />
           <xs:element ref="reason" />
         </xs:sequence>
-      <xs:attribute ref="r:originator" />
-      <xs:attribute ref="v:version" />
+        <xs:attribute ref="r:originator" />
+        <xs:attribute ref="v:version" />
       </xs:complexType>
     </xs:element>
 
