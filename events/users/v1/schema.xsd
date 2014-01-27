@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
+           xmlns:c="http://schemas.blinkboxbooks.com/events/clients/v1"
            xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
            xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
            targetNamespace="http://schemas.blinkboxbooks.com/events/users/v1"
            elementFormDefault="qualified"
            version="1.0">
 
+  <xs:import namespace="http://schemas.blinkboxbooks.com/events/clients/v1"
+             schemaLocation="../../../events/clients/v1/schema.xsd"/>
+
   <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/routing/v1"
              schemaLocation="../../../messaging/routing/v1/schema.xsd"/>
 
   <xs:import namespace="http://schemas.blinkboxbooks.com/messaging/versioning"
              schemaLocation="../../../messaging/versioning/schema.xsd"/>
+
+  <xs:element name="authenticated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="user"/>
+        <xs:element ref="c:client" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute ref="r:originator"/>
+      <xs:attribute ref="v:version"/>
+    </xs:complexType>
+  </xs:element>
 
   <xs:element name="registered">
     <xs:complexType>
