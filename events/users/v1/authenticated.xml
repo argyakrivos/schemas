@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<authenticated xmlns="http://schemas.blinkboxbooks.com/events/users/v1"
+               xmlns:c="http://schemas.blinkboxbooks.com/events/clients/v1"
+               xmlns:r="http://schemas.blinkboxbooks.com/messaging/routing/v1"
+               xmlns:v="http://schemas.blinkboxbooks.com/messaging/versioning"
+               r:originator="zuul"
+               v:version="1.0">
+
+  <timestamp>2013-12-30T19:15:23Z</timestamp>
+
+  <user>
+    <id>123</id>
+    <username>user@domain.com</username>
+    <firstName>First Name</firstName>
+    <lastName>Last Name</lastName>
+    <allowMarketingCommunications>true</allowMarketingCommunications>
+  </user>
+
+  <!-- only included if the user authenticates with client credentials -->
+  <c:client>
+    <c:id>19384</c:id>
+    <c:name>My New Phone</c:name>
+    <c:brand>Apple</c:brand>
+    <c:model>iPhone 5S</c:model>
+    <c:os>iOS 7</c:os>
+  </c:client>
+
+</authenticated>
