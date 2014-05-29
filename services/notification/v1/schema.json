@@ -1,0 +1,29 @@
+{
+  "title": "blinkbox books services notification schema",
+  "type": "object",
+  "properties": {
+    "service": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string" // SemVer json schema?
+        }
+      }
+    },
+    "type": {
+      "description": "The event which has occurred with this service",
+      "type": {
+        "enum": ["service.start", "service.stop"]
+      }
+    },
+    "timestamp": {
+      "description": "UNIX timestamp for time this event occurred",
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": ["service", "type", "timestamp"]
+}
