@@ -41,7 +41,7 @@ end
 def validate_json(schema_file, json_file)
   Dir.chdir(File.dirname(json_file)) do
     begin
-      JSON::Validator.validate!(File.basename(schema_file),File.read(File.basename(json_file)))
+      JSON::Validator.validate!(File.basename(schema_file), File.read(File.basename(json_file)))
     rescue JSON::Schema::ValidationError => e
       return [e.message]
     end
@@ -54,7 +54,7 @@ def scan_and_parse(type, schema_file)
   %i{all skipped valid invalid}.each { |k| totals[k] = 0 }
 
   glob_string = File.join(File.dirname(schema_file),"*.#{type}")
-  files = Dir.glob(glob_string) - SCHEMA_FILE.values.map {|f| File.join(File.dirname(schema_file),f)}
+  files = Dir.glob(glob_string) - SCHEMA_FILE.values.map { |f| File.join(File.dirname(schema_file), f) }
   if File.exists? schema_file
     # if there are no XML files to validate against the schema
     if files.empty?
