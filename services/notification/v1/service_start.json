@@ -1,8 +1,0 @@
-{
-  "service": {
-    "name": "marvin/watcher",
-    "version": "1.0.0"
-  },
-  "type": "service.start",
-  "timestamp": 1400600895
-}

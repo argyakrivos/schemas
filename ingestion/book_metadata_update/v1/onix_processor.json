@@ -1,0 +1,21 @@
+{
+  "classification": [
+    {
+      "realm": "isbn",
+      "id": "9780111222333"
+    }
+  ],
+  "contributors": [
+    {
+      "display_name": "Jan Cleijne",
+      "contributor_id": "17265885bf08fc5617c3d22951b4a36c8502f4c4",
+      "role": "Author"
+    }
+  ],
+  "source": {
+    "delivered_at": "2014-06-23T12:03:14.23Z",
+    "uri": "azure://path.to/a/folder/and/a/file.xml",
+    "role": "publisher ftp",
+    "username": "randomhouse_uk"
+  }
+}

@@ -61,7 +61,7 @@ def scan_and_parse(type, schema_file)
       totals[:all] += 1
       totals[:skipped] += 1
       puts "   Skipping #{File.basename(schema_file)} - could not find any XML files to validate against".colorize(:yellow)
-      return
+      return totals
     end
     files.each do |file|
       totals[:all] += 1
@@ -110,8 +110,8 @@ Dir.glob("**/*/") do |folder|
   end
 
   SCHEMA_FILE.each_pair do |file_type, schema_file|
-    scan_and_parse(file_type, File.join(folder,schema_file))#.each_pair do |total_type, count|
-      (overall_totals[total_type] ||= 0) += count
+    scan_and_parse(file_type, File.join(folder,schema_file)).each_pair do |total_type, count|
+      overall_totals[total_type] = (overall_totals[total_type] || 0) + count
     end
   end
 end
