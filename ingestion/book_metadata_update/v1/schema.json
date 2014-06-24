@@ -4,7 +4,7 @@
   "properties": {
     "classification": { "$ref": "#/definitions/classification" },
     "data": {
-      "oneOf": [
+      "anyOf": [
         { "$ref": "#/definitions/book_data" },
         { "$ref": "#/definitions/media_data" }
       ]
@@ -99,6 +99,7 @@
                     "title": "The string that should be used for sorting this contributor among others.",
                     "type": "string"
                   }
+                  // TODO: Add name components
                 },
                 "required": ["display"],
                 "additionalProperties": false
@@ -110,10 +111,27 @@
             "required": ["classification", "names", "role"]
           }
         },
+        // TODO: Availability
         "availability": {},
-        "dates": {},
+        "dates": {
+          "title": "Information about dates relevant to the publishing of this book.",
+          "type": "object",
+          "properties": {
+            "publish": {
+              "title": "The date and time at which the publisher allows this book to go on sale.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "announce": {
+              "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released.",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false,
+        },
+        // TODO: Descriptions
         "description": {},
-        "imprint": {},
         "language": {
           "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
           "type": "array",
@@ -121,7 +139,7 @@
             "$ref": "#/definitions/iso639-2b"
           }
         },
-        "sellable_in?": {},
+        // TODO: Sellable in / Not sellable in
         "pages": {
           "title": "Number of pages in an equivalent physical book",
           "type": "integer"
@@ -134,7 +152,9 @@
           "title": "The name of the publisher's imprint as it should appear on the site.",
           "type": "string"
         },
+        // TODO: Prices
         "prices": {},
+        // TODO: Subjects
         "subjects": {}
       },
       "additionalProperties": false

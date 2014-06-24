@@ -43,7 +43,7 @@
   },
   "source": {
     "delivered_at": "2014-06-23T13:22:17.35Z",
-    "uri": "azure://path.to/a/folder/and/a/book.epub",
+    "uri": "azure://path.to/a/folder/and/a/book-cover.jpg",
     "role": "publisher ftp",
     "username": "randomhouse_uk"
   }
