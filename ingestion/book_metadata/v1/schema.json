@@ -128,7 +128,7 @@
               "format": "date-time"
             }
           },
-          "additionalProperties": false,
+          "additionalProperties": false
         },
         // TODO: Descriptions
         "description": {},
