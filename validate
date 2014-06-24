@@ -40,12 +40,7 @@ end
 
 def validate_json(schema_file, json_file)
   Dir.chdir(File.dirname(json_file)) do
-    begin
-      JSON::Validator.validate!(File.basename(schema_file), File.read(File.basename(json_file)))
-    rescue JSON::Schema::ValidationError => e
-      return [e.message]
-    end
-    return []
+    JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file), validate_schema: true)
   end
 end
 
@@ -90,10 +85,14 @@ def scan_and_parse(type, schema_file)
   totals
 end
 
-overall_totals = {}
+overall_totals = {
+  invalid: 0,
+  skipped: 0
+}
+location = File.directory?(ARGV[0]) ? ARGV[0] : "./" rescue "./"
 
 # for all directories
-Dir.glob("**/*/") do |folder|
+Dir.glob(File.join(location,"**/*/")) do |folder|
   puts "Going through #{folder}"
   # if there are multiple schemas
   xsd_files = Dir[File.join(folder, "*.xsd")]
@@ -101,8 +100,8 @@ Dir.glob("**/*/") do |folder|
 
   if (xsd_files.length > 1) || (json_schema_files.length > 1)
     num_files = xsd_files.length + json_schema_files.length
-    $total_files += num_files
-    $invalid_files += num_files
+    # overall_totals[:all] += num_files
+    # overall_totals[:invalid] += num_files
     files_list = (xsd_files + json_schema_files).map { |f| File.basename(f) }.join(", ")
     puts "   Multiple schema files detected (#{files_list}) - marking them as invalid!".colorize(:red)
     puts "   You should have only one schema file in a directory called: #{SCHEMA_FILE[:xml]} or #{SCHEMA_FILE[:json]}".colorize(:red)

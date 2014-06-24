@@ -1,0 +1,50 @@
+{
+  "classification": [
+    {
+      "realm": "isbn",
+      "id": "9780111222333"
+    }
+  ],
+  "data": {
+    "media": {
+      "images": [
+        {
+          "classification": [
+            {
+              "realm": "type",
+              "id": "front_cover"
+            },
+            {
+              "realm": "source_role",
+              "id": "publisher ftp"
+            }
+          ],
+          "uris": [
+            {
+              "type": "resource_server",
+              "uri": "https://media.blinkboxbooks.com/path/to/file.png"
+            },
+            {
+              "type": "static",
+              "uri": "http://container.azure.com/path/to/file.jpg"
+            },
+            {
+              "type": "static",
+              "uri": "http://container.azure.com/path/to/file.jpg",
+              "params": "img:m=scale;img:w=300;v=0"
+            }
+          ],
+          "width": 1200,
+          "height": 2500,
+          "size": 25485
+        }
+      ]
+    }
+  },
+  "source": {
+    "delivered_at": "2014-06-23T13:22:17.35Z",
+    "uri": "azure://path.to/a/folder/and/a/book.epub",
+    "role": "publisher ftp",
+    "username": "randomhouse_uk"
+  }
+}
