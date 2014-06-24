@@ -196,7 +196,8 @@
                 "type": "object",
                 "properties": {
                   "type": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^(?!BI(?:SA)?C).*$"
                     // TODO: Disallowed values: BIC and BISAC
                   },
                   "code": {

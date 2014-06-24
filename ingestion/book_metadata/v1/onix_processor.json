@@ -22,6 +22,12 @@
         "role": "Author",
         "biography": "Zaphod is just some guy, you know?"
       }
+    ],
+    "subjects": [
+      {
+        "type": "BISAC",
+        "code": "FIC050000"
+      }
     ]
   },
   "source": {
