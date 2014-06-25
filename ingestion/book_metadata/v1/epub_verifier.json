@@ -16,7 +16,11 @@
             },
             {
               "realm": "source_role",
-              "id": "publisher ftp"
+              "id": "publisher_ftp"
+            },
+            {
+              "realm": "drm",
+              "id": "blinkboxbooks"
             }
           ],
           "uris": [
@@ -41,7 +45,11 @@
             },
             {
               "realm": "source_role",
-              "id": "publisher ftp"
+              "id": "publisher_ftp"
+            },
+            {
+              "realm": "drm",
+              "id": "none"
             }
           ],
           "uris": [
@@ -59,7 +67,7 @@
   "source": {
     "delivered_at": "2014-06-23T13:22:17.35Z",
     "uri": "azure://path.to/a/folder/and/a/book.epub",
-    "role": "publisher ftp",
+    "role": "publisher_ftp",
     "username": "randomhouse_uk"
   }
 }

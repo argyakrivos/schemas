@@ -33,7 +33,7 @@
   "source": {
     "delivered_at": "2014-06-23T12:03:14.23Z",
     "uri": "azure://path.to/a/folder/and/a/file.xml",
-    "role": "publisher ftp",
+    "role": "publisher_ftp",
     "username": "randomhouse_uk"
   }
 }

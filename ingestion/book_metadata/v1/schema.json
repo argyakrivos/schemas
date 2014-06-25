@@ -59,7 +59,7 @@
         "properties": {
           "realm": {
             "title": "The name of the realm in which this unique identifier exists",
-            "enum": ["isbn", "contributor_id", "source_role", "type"]
+            "enum": ["isbn", "contributor_id", "source_role", "type", "drm"]
           },
           "id": {
             "type": "string"
@@ -257,7 +257,7 @@
                 "title": "The additional components of the media item which are specific to epubs.",
                 "properties": {
                   "keyfile": {
-                    "title": "The location of the (secured) keyfile for decrypting the ePub. The absence of this key implies it is not encrypted.",
+                    "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
                     "type": "string",
                     "format": "uri"
                   },
