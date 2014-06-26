@@ -17,11 +17,6 @@
       "type": "array",
       "items": {
         "$ref": "contributor.schema.json#/",
-        "additionalProperties": {
-          "role": {
-            "type": "string"
-          }
-        },
         "required": ["role"]
       }
     },
@@ -185,7 +180,7 @@
     "media": {
       "anyOf": [
         { "$ref": "#/definitions/epub_media" },
-        { "$ref": "#/definitions/image_media" }
+        { "$ref": "common.schema.json#/definitions/image_media" }
       ]
     }
   },
@@ -193,94 +188,31 @@
   "additionalProperties": { "$ref": "common.schema.json#/definitions/source" },
   "definitions": {
     "epub_media": {
-      "title": "This holds info about one or more epubs.",
-      "type": "object",
-      "properties": {
-        "epubs": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              { "$ref": "#/definitions/media_item" },
-              {
-                "title": "The additional components of the media item which are specific to epubs.",
-                "properties": {
-                  "keyfile": {
-                    "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "wordcount": {
-                    "title": "The number of words in the associated epub.",
-                    "type": "integer"
-                  }
-                },
-                "required": ["wordcount"]
-              }
-            ]
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "image_media": {
-      "title": "This holds info about one or more images and can be applied to a book or a contributor.",
-      "type": "object",
-      "properties": {
-        "images": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              { "$ref": "#/definitions/media_item" },
-              {
-                "title": "The additional components of the media item which are specific to images.",
-                "properties": {
-                  "width": {
-                    "title": "The width of the image in pixels.",
-                    "type": "integer"
-                  },
-                  "height": {
-                    "title": "The height of the image in pixels.",
-                    "type": "integer"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "media_item": {
-      "title": "All images, epubs, mobis etc are described using this format.",
-      "type": "object",
-      "properties": {
-        "classification":  { "$ref": "common.schema.json#/definitions/classification" },
-        "uris": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "type": {
-                "enum": ["static", "resource_server"]
-              },
-              "uri": {
-                "type": "string",
-                "format": "uri"
-              },
-              "params": {
-                "type": "string",
-                "format": "resource server params"
-              }
-            },
-            "required": ["type", "uri"],
-            "additionalProperties": false
-          }
-        },
-        "size": {
-          "title": "The size of the asset in bytes",
-          "type": "integer"
-        }
-      },
-      "required": ["classification", "uris", "size"]
+      // "title": "This holds info about one or more epubs.",
+      // "type": "object",
+      // "properties": {
+      //   "epubs": {
+      //     "type": "array",
+      //     "items": {
+      //       "title": "The additional components of the media item which are specific to epubs.",
+      //       "properties": {
+      //         "$ref": "common.schema.json#/definitions/media_item",
+      //         "keyfile": {
+      //           "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
+      //           "type": "string",
+      //           "format": "uri"
+      //         },
+      //         "wordcount": {
+      //           "title": "The number of words in the associated epub.",
+      //           "type": "integer"
+      //         }
+      //       },
+      //       "required": ["wordcount"]//,
+      //       //"additionalProperties": false
+      //     }
+      //   }
+      // },
+      // "additionalProperties": false
     }
   }
 }

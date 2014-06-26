@@ -60,8 +60,66 @@
           "format": "date-time"
         }
       },
-      "required": ["delivered_at", "uri", "role", "username"],
+      "required": ["delivered_at", "role", "username"],
       "additionalProperties": false
+    },
+    "image_media": {
+      "title": "This holds info about one or more images and can be applied to a book or a contributor.",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "title": "An image media element.",
+            "properties": {
+              "$ref": "#/definitions/media_item",
+              "width": {
+                "title": "The width of the image in pixels.",
+                "type": "integer"
+              },
+              "height": {
+                "title": "The height of the image in pixels.",
+                "type": "integer"
+              }
+            }
+          }//,
+          // PICK UP HERE: I just added this
+          //"additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "media_item": {
+      "title": "All images, epubs, mobis etc are described using this format.",
+      "type": "object",
+      "properties": {
+        "classification":  { "$ref": "common.schema.json#/definitions/classification" },
+        "uris": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "type": {
+                "enum": ["static", "resource_server"]
+              },
+              "uri": {
+                "type": "string",
+                "format": "uri"
+              },
+              "params": {
+                "type": "string",
+                "format": "resource server params"
+              }
+            },
+            "required": ["type", "uri"],
+            "additionalProperties": false
+          }
+        },
+        "size": {
+          "title": "The size of the asset in bytes",
+          "type": "integer"
+        }
+      },
+      "required": ["classification", "uris", "size"]
     }
   }
 }

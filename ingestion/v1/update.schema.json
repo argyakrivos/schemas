@@ -4,9 +4,9 @@
   "properties": {
     "source": { "$ref": "common.schema.json#/definitions/source" }
   },
-  "oneOf": [
+  "anyOf": [
     { "$ref": "book.schema.json#/" },
     { "$ref": "contributor.schema.json#/" }
   ],
-  "required": ["classification", "data", "source"]
+  "required": ["classification", "source"]
 }

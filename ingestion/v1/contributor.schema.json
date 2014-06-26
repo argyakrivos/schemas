@@ -45,7 +45,26 @@
       },
       "required": ["display"],
       "additionalProperties": false
+    },
+    "media": {
+      "title": "The media types that can be associated with this contributor.",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array"//,
+          //"items": { "$ref": "common.schema.json#/definitions/image_media" }
+        }
+      }
+    },
+    "biography": {
+      "title": "A biography associated with this contributor. HTML or plan text.",
+      "type": "string"
+    },
+    "role": {
+      "title": "A contributor when assocaited with a book may have a role.",
+      "type": "string"
     }
   },
-  "required": ["classification", "names"]
+  "required": ["classification"],
+  "additionalProperties": { "$ref": "common.schema.json#/definitions/source" }
 }
