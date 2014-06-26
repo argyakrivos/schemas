@@ -3,204 +3,187 @@
   "type": "object",
   "properties": {
     "classification": { "$ref": "common.schema.json#/definitions/classification" },
-    "data": {
+    // These are pieces of information we'd expect from an ONIX file
+    "title": {
+      "title": "The title of the book",
+      "type": "string"
+    },
+    "subtitle": {
+      "title": "The subtitle of the book",
+      "type": "string"
+    },
+    "contributors": {
+      "title": "The array listing, in order, contributors this work is attributed to.",
+      "type": "array",
+      "items": { "$ref": "contributor.schema.json#/"}
+    },
+    // TODO: Availability
+    "availability": {},
+    "dates": {
+      "title": "Information about dates relevant to the publishing of this book.",
+      "type": "object",
+      "properties": {
+        "publish": {
+          "title": "The date and time at which the publisher allows this book to go on sale.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "announce": {
+          "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released.",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    // TODO: Descriptions
+    "description": {},
+    "language": {
+      "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/iso639-2b"
+      }
+    },
+    // TODO: Sellable in / Not sellable in
+    "pages": {
+      "title": "Number of pages in an equivalent physical book",
+      "type": "integer"
+    },
+    "publisher": {
+      "title": "The name of the publisher as it should appear on the site.",
+      "type": "string"
+    },
+    "imprint": {
+      "title": "The name of the publisher's imprint as it should appear on the site.",
+      "type": "string"
+    },
+    "prices": {
+      "title": "The array holding all publisher delivered prices for this book.",
+      "type": "array",
+      "items": {
+        "title": "An individual price object detailing all aspects of a specific price for a book.",
+        "type": "object",
+        "properties": {
+          "amount": {
+            "title": "The amount associated with this price.",
+            "type": "number"
+          },
+          "currency": {
+            "title": "The ISO-4217 currency code associated with this price.",
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "includes_tax?": {
+            "title": "Whether this price includes tax or not.",
+            "type": "boolean"
+          },
+          "agency?": {
+            "title": "Whether this price is an agency model price or not.",
+            "type": "boolean"
+          },
+          "discount_rate": {
+            "title": "The discount rate which should be applied to this price (if no publisher level rate overrides it).",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "valid_from": {
+            "title": "The date time from which this price is valid.",
+            "type": "string",
+            "format": "date-time"
+          }
+          // TODO: Regions, excluding regions, tax
+        },
+        "required": ["amount", "currency", "includes_tax?", "agency?"],
+        "additionalProperties": false
+      }
+    },
+    "subjects": {
+      "title": "Categorisation of the book; keywords, genres etc.",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "title": "BISAC codes",
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": ["BISAC"]
+              },
+              "code": {
+                "title": "The BISAC code",
+                // TODO: enum of valid BISAC codes
+                "type": "string"
+              }
+            },
+            "required": ["type", "code"],
+            "additionalProperties": false
+          },
+          {
+            "title": "BIC codes must be one of the accepted values",
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": ["BIC"]
+              },
+              "code": {
+                "title": "The BIC code",
+                // TODO: enum of valid BIC codes
+                "type": "string"
+              }
+            },
+            "required": ["type", "code"],
+            "additionalProperties": false
+          },
+          {
+            "title": "Anything that isn't BIC or BISAC codes we just take as informative",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "pattern": "^(?!BI(?:SA)?C).*$"
+                // TODO: Disallowed values: BIC and BISAC
+              },
+              "code": {
+                "title": "The text used for this subject code",
+                "type": "string"
+              }
+            },
+            "required": ["type", "code"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "series": {
+      "title": "Details about the series this book is in.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "The title of the series this book is in. This should be globally unique, but I have no clue how we can ensure that...",
+          "type": "string"
+        },
+        "number": {
+          "title": "This book's number in the series",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": ["title"],
+      "additionalProperties": false
+    },
+    // We'd expect media elements from an EPUB or COVER processor
+    "media": {
       "anyOf": [
-        { "$ref": "#/definitions/book_metadata" },
-        { "$ref": "#/definitions/media_metadata" }
+        { "$ref": "#/definitions/epub_media" },
+        { "$ref": "#/definitions/image_media" }
       ]
     }
   },
-  "required": ["classification", "data"],
+  "required": ["classification"],
   "additionalProperties": { "$ref": "common.schema.json#/definitions/source" },
   "definitions": {
-    "book_metadata": {
-      "title": "Metadata about a book, as would be collected from ONIX.",
-      "properties": {
-        "title": {
-          "title": "The title of the book",
-          "type": "string"
-        },
-        "subtitle": {
-          "title": "The subtitle of the book",
-          "type": "string"
-        },
-        "contributors": {
-          "title": "The array listing, in order, contributors this work is attributed to.",
-          "type": "array",
-          "items": { "$ref": "contributor.schema.json#/"}
-        },
-        // TODO: Availability
-        "availability": {},
-        "dates": {
-          "title": "Information about dates relevant to the publishing of this book.",
-          "type": "object",
-          "properties": {
-            "publish": {
-              "title": "The date and time at which the publisher allows this book to go on sale.",
-              "type": "string",
-              "format": "date-time"
-            },
-            "announce": {
-              "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released.",
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        // TODO: Descriptions
-        "description": {},
-        "language": {
-          "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/iso639-2b"
-          }
-        },
-        // TODO: Sellable in / Not sellable in
-        "pages": {
-          "title": "Number of pages in an equivalent physical book",
-          "type": "integer"
-        },
-        "publisher": {
-          "title": "The name of the publisher as it should appear on the site.",
-          "type": "string"
-        },
-        "imprint": {
-          "title": "The name of the publisher's imprint as it should appear on the site.",
-          "type": "string"
-        },
-        "prices": {
-          "title": "The array holding all publisher delivered prices for this book.",
-          "type": "array",
-          "items": {
-            "title": "An individual price object detailing all aspects of a specific price for a book.",
-            "type": "object",
-            "properties": {
-              "amount": {
-                "title": "The amount associated with this price.",
-                "type": "number"
-              },
-              "currency": {
-                "title": "The ISO-4217 currency code associated with this price.",
-                "type": "string",
-                "pattern": "^[A-Z]{3}$"
-              },
-              "includes_tax?": {
-                "title": "Whether this price includes tax or not.",
-                "type": "boolean"
-              },
-              "agency?": {
-                "title": "Whether this price is an agency model price or not.",
-                "type": "boolean"
-              },
-              "discount_rate": {
-                "title": "The discount rate which should be applied to this price (if no publisher level rate overrides it).",
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1
-              },
-              "valid_from": {
-                "title": "The date time from which this price is valid.",
-                "type": "string",
-                "format": "date-time"
-              }
-              // TODO: Regions, excluding regions, tax
-            },
-            "required": ["amount", "currency", "includes_tax?", "agency?"],
-            "additionalProperties": false
-          }
-        },
-        "subjects": {
-          "title": "Categorisation of the book; keywords, genres etc.",
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "title": "BISAC codes",
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": ["BISAC"]
-                  },
-                  "code": {
-                    "title": "The BISAC code",
-                    // TODO: enum of valid BISAC codes
-                    "type": "string"
-                  }
-                },
-                "required": ["type", "code"],
-                "additionalProperties": false
-              },
-              {
-                "title": "BIC codes must be one of the accepted values",
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "enum": ["BIC"]
-                  },
-                  "code": {
-                    "title": "The BIC code",
-                    // TODO: enum of valid BIC codes
-                    "type": "string"
-                  }
-                },
-                "required": ["type", "code"],
-                "additionalProperties": false
-              },
-              {
-                "title": "Anything that isn't BIC or BISAC codes we just take as informative",
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "pattern": "^(?!BI(?:SA)?C).*$"
-                    // TODO: Disallowed values: BIC and BISAC
-                  },
-                  "code": {
-                    "title": "The text used for this subject code",
-                    "type": "string"
-                  }
-                },
-                "required": ["type", "code"],
-                "additionalProperties": false
-              }
-            ]
-          }
-        },
-        "series": {
-          "title": "Details about the series this book is in.",
-          "type": "object",
-          "properties": {
-            "title": {
-              "title": "The title of the series this book is in. This should be globally unique, but I have no clue how we can ensure that...",
-              "type": "string"
-            },
-            "number": {
-              "title": "This book's number in the series",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": ["title"],
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
-    "media_metadata": {
-      "title": "Holds information about media for this book.",
-      "type": "object",
-      "properties": {
-        "media": {
-          "anyOf": [
-            { "$ref": "#/definitions/epub_media" },
-            { "$ref": "#/definitions/image_media" }
-          ]
-        }
-      },
-      "additionalProperties": false
-    },
     "epub_media": {
       "title": "This holds info about one or more epubs.",
       "type": "object",

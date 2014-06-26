@@ -5,31 +5,29 @@
       "id": "9780111222333"
     }
   ],
-  "data": {
-    "title": "Two Heads are Better Than One",
-    "contributors": [
-      {
-        "classification": [
-          {
-            "realm": "contributor_id",
-            "id": "17265885bf08fc5617c3d22951b4a36c8502f4c4"
-          }
-        ],
-        "names": {
-          "display": "Zaphod Beeblebrox",
-          "sort": "Beeblebrox, Zaphod"
-        },
-        "role": "Author",
-        "biography": "Zaphod is just some guy, you know?"
-      }
-    ],
-    "subjects": [
-      {
-        "type": "BISAC",
-        "code": "FIC050000"
-      }
-    ]
-  },
+  "title": "Two Heads are Better Than One",
+  "contributors": [
+    {
+      "classification": [
+        {
+          "realm": "contributor_id",
+          "id": "17265885bf08fc5617c3d22951b4a36c8502f4c4"
+        }
+      ],
+      "names": {
+        "display": "Zaphod Beeblebrox",
+        "sort": "Beeblebrox, Zaphod"
+      },
+      "role": "Author",
+      "biography": "Zaphod is just some guy, you know?"
+    }
+  ],
+  "subjects": [
+    {
+      "type": "BISAC",
+      "code": "FIC050000"
+    }
+  ],
   "source": {
     "delivered_at": "2014-06-23T12:03:14.23Z",
     "uri": "azure://path.to/a/folder/and/a/file.xml",
