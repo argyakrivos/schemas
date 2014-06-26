@@ -45,10 +45,7 @@
       },
       "required": ["display"],
       "additionalProperties": false
-    },
-    "role": {
-      "type": "string"
     }
   },
-  "required": ["classification", "names", "role"]
+  "required": ["classification", "names"]
 }

@@ -15,7 +15,15 @@
     "contributors": {
       "title": "The array listing, in order, contributors this work is attributed to.",
       "type": "array",
-      "items": { "$ref": "contributor.schema.json#/"}
+      "items": {
+        "$ref": "contributor.schema.json#/",
+        "additionalProperties": {
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": ["role"]
+      }
     },
     // TODO: Availability
     "availability": {},
