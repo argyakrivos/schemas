@@ -7,7 +7,7 @@ require "json-schema"
 
 SCHEMA_FILE = {
   xml: "schema.xsd",
-  json: "schema.json"
+  json: "*.schema.json"
 }
 
 def validate_xml(xsd_file, xml_file)
@@ -40,48 +40,46 @@ end
 
 def validate_json(schema_file, json_file)
   Dir.chdir(File.dirname(json_file)) do
-    JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file), validate_schema: true)
+    begin
+      JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file), validate_schema: true)
+    rescue
+      [$!.message]
+    end
   end
 end
 
-def scan_and_parse(type, schema_file)
+def scan_and_parse(folder, type)
   totals = {}
   %i{all skipped valid invalid}.each { |k| totals[k] = 0 }
 
-  glob_string = File.join(File.dirname(schema_file),"*.#{type}")
-  files = Dir.glob(glob_string) - SCHEMA_FILE.values.map { |f| File.join(File.dirname(schema_file), f) }
-  if File.exists? schema_file
-    # if there are no XML files to validate against the schema
-    if files.empty?
-      totals[:all] += 1
-      totals[:skipped] += 1
-      puts "   Skipping #{File.basename(schema_file)} - could not find any XML files to validate against".colorize(:yellow)
-      return totals
-    end
-    files.each do |file|
-      totals[:all] += 1
-      print "   Validating #{file} against #{schema_file} ... ".colorize(:cyan)
-      errors = send("validate_#{type}", schema_file, file)
-      if errors.empty?
-        totals[:valid] += 1
-        puts "valid!".colorize(:green)
-      else
-        totals[:invalid] += 1
-        puts "invalid!".colorize(:red)
-        errors.each do |msg|
-          puts "      #{msg}".colorize(:red)
-        end
+  glob_string = File.join(folder,"*.#{type}")
+  schema_files = Dir.glob(File.join(folder, SCHEMA_FILE[type]))
+  files = Dir.glob(glob_string) - schema_files
+  
+  files.each do |file|
+    totals[:all] += 1
+    schema_file = case type
+                  when :xml
+                    raise "More than one XSD found, cannot validate" if schema_files.size > 1
+                    schema_files.first
+                  when :json
+                    "#{file.split('.')[-2]}.schema.json"
+                  end
+    print "   Validating #{file} against #{schema_file} ... ".colorize(:cyan)
+    errors = send("validate_#{type}", schema_file, file)
+    
+    if errors.empty?
+      totals[:valid] += 1
+      puts "valid!".colorize(:green)
+    else
+      totals[:invalid] += 1
+      puts "invalid!".colorize(:red)
+      errors.each do |msg|
+        puts "      #{msg}".colorize(:red)
       end
     end
-  else
-    if files.any?
-      totals[:all] += files.length
-      totals[:invalid] += files.length
-      files_list = files.map { |f| File.basename(f) }.join(", ")
-      puts "   Found #{type.upcase} files without any schema definition (#{files_list}) - marking them as invalid!".colorize(:red)
-      puts "   You should either remove them or create a schema definition file (#{SCHEMA_FILE})".colorize(:red)
-    end
   end
+
   totals
 end
 
@@ -94,22 +92,21 @@ location = File.directory?(ARGV[0]) ? ARGV[0] : "./" rescue "./"
 # for all directories
 Dir.glob(File.join(location,"**/*/")) do |folder|
   puts "Going through #{folder}"
-  # if there are multiple schemas
+  # if there are multiple schemas (only applicable for XML)
   xsd_files = Dir[File.join(folder, "*.xsd")]
-  json_schema_files = Dir[File.join(folder, "*schema.json")]
 
-  if (xsd_files.length > 1) || (json_schema_files.length > 1)
+  if (xsd_files.length > 1)
     num_files = xsd_files.length + json_schema_files.length
     # overall_totals[:all] += num_files
     # overall_totals[:invalid] += num_files
-    files_list = (xsd_files + json_schema_files).map { |f| File.basename(f) }.join(", ")
-    puts "   Multiple schema files detected (#{files_list}) - marking them as invalid!".colorize(:red)
-    puts "   You should have only one schema file in a directory called: #{SCHEMA_FILE[:xml]} or #{SCHEMA_FILE[:json]}".colorize(:red)
+    files_list = xsd_files.map { |f| File.basename(f) }.join(", ")
+    puts "   Multiple XML schema files detected (#{files_list}) - marking them as invalid!".colorize(:red)
+    puts "   You should have only one schema file in a directory called: #{SCHEMA_FILE[:xml]}".colorize(:red)
     next
   end
 
-  SCHEMA_FILE.each_pair do |file_type, schema_file|
-    scan_and_parse(file_type, File.join(folder,schema_file)).each_pair do |total_type, count|
+  SCHEMA_FILE.keys.each do |file_type|
+    scan_and_parse(folder, file_type).each_pair do |total_type, count|
       overall_totals[total_type] = (overall_totals[total_type] || 0) + count
     end
   end

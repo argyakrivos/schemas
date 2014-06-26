@@ -1,75 +1,19 @@
 {
-  "title": "Book metadata update message.",
+  "title": "Metadata about a book.",
   "type": "object",
   "properties": {
-    "classification": { "$ref": "#/definitions/classification" },
+    "classification": { "$ref": "common.schema.json#/definitions/classification" },
     "data": {
       "anyOf": [
-        { "$ref": "#/definitions/book_data" },
-        { "$ref": "#/definitions/media_data" }
+        { "$ref": "#/definitions/book_metadata" },
+        { "$ref": "#/definitions/media_metadata" }
       ]
-    },
-    "source": {
-      "type": "object",
-      "properties": {
-        "delivered_at": {
-          "title": "The ISO 8601 timestamp of when this asset is considered to be valid from.",
-          "type": "string",
-          "format": "date-time"
-        },
-        "uri": {
-          "title": "The location of the source asset for the metadata described.",
-          "type": "string",
-          "format": "uri"
-        },
-        "role": {
-          "title": "The role of the source that provided this data.",
-          "enum": ["publisher ftp", "content manager"]
-        },
-        "username": {
-          "title": "The username of the source entity",
-          "type": "string"
-        },
-        "system": {
-          "title": "The system which processed this asset. Not required as the message metadata contains the fallback.",
-          "type": "string"
-        },
-        "processed_at": {
-          "title": "The ISO 8601 timestamp of when this asset was processed. Not required as the timestamp of the message is the fallback.",
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "required": ["delivered_at", "uri", "role", "username"],
-      "additionalProperties": false
     }
   },
-  "required": ["classification", "data", "source"],
-  "additionalProperties": false,
+  "required": ["classification", "data"],
+  "additionalProperties": { "$ref": "common.schema.json#/definitions/source" },
   "definitions": {
-    "iso639-2b": {
-      "title": "The list of ISO-639/2B language codes, for validating languages recognised by blinkbox books.",
-      "enum": ["aar","abk","ace","ach","ada","ady","afa","afh","afr","ain","aka","akk","alb","ale","alg","alt","amh","ang","anp","apa","ara","arc","arg","arm","arn","arp","art","arw","asm","ast","ath","aus","ava","ave","awa","aym","aze","bad","bai","bak","bal","bam","ban","baq","bas","bat","bej","bel","bem","ben","ber","bho","bih","bik","bin","bis","bla","bnt","bos","bra","bre","btk","bua","bug","bul","bur","byn","cad","cai","car","cat","cau","ceb","cel","cha","chb","che","chg","chi","chk","chm","chn","cho","chp","chr","chu","chv","chy","cmc","cop","cor","cos","cpe","cpf","cpp","cre","crh","crp","csb","cus","cze","dak","dan","dar","day","del","den","dgr","din","div","doi","dra","dsb","dua","dum","dut","dyu","dzo","efi","egy","eka","elx","eng","enm","epo","est","ewe","ewo","fan","fao","fat","fij","fil","fin","fiu","fon","fre","frm","fro","frr","frs","fry","ful","fur","gaa","gay","gba","gem","geo","ger","gez","gil","gla","gle","glg","glv","gmh","goh","gon","gor","got","grb","grc","gre","grn","gsw","guj","gwi","hai","hat","hau","haw","heb","her","hil","him","hin","hit","hmn","hmo","hrv","hsb","hun","hup","iba","ibo","ice","ido","iii","ijo","iku","ile","ilo","ina","inc","ind","ine","inh","ipk","ira","iro","ita","jav","jbo","jpn","jpr","jrb","kaa","kab","kac","kal","kam","kan","kar","kas","kau","kaw","kaz","kbd","kha","khi","khm","kho","kik","kin","kir","kmb","kok","kom","kon","kor","kos","kpe","krc","krl","kro","kru","kua","kum","kur","kut","lad","lah","lam","lao","lat","lav","lez","lim","lin","lit","lol","loz","ltz","lua","lub","lug","lui","lun","luo","lus","mac","mad","mag","mah","mai","mak","mal","man","mao","map","mar","mas","may","mdf","mdr","men","mga","mic","min","mis","mkh","mlg","mlt","mnc","mni","mno","moh","mol","mon","mos","mul","mun","mus","mwl","mwr","myn","myv","nah","nai","nap","nau","nav","nbl","nde","ndo","nds","nep","new","nia","nic","niu","nno","nob","nog","non","nor","nqo","nso","nub","nwc","nya","nym","nyn","nyo","nzi","oci","oji","ori","orm","osa","oss","ota","oto","paa","pag","pal","pam","pan","pap","pau","peo","per","phi","phn","pli","pol","pon","por","pra","pro","pus","qar","qav","que","raj","rap","rar","roa","roh","rom","rum","run","rup","rus","sad","sag","sah","sai","sal","sam","san","sas","sat","scc","scn","sco","scr","sel","sem","sga","sgn","shn","sid","sin","sio","sit","sla","slo","slv","sma","sme","smi","smj","smn","smo","sms","sna","snd","snk","sog","som","son","sot","spa","srd","srn","srp","srr","ssa","ssw","suk","sun","sus","sux","swa","swe","syc","syr","tah","tai","tam","tat","tel","tem","ter","tet","tgk","tgl","tha","tib","tig","tir","tiv","tkl","tlh","tli","tmh","tog","ton","tpi","tsi","tsn","tso","tuk","tum","tup","tur","tut","tvl","twi","tyv","udm","uga","uig","ukr","umb","und","urd","uzb","vai","ven","vie","vol","vot","wak","wal","war","was","wel","wen","wln","wol","xal","xho","yao","yap","yid","yor","ypk","zap","zbl","zen","zha","znd","zul","zun","zxx","zza"]
-    },
-    "classification": {
-      "title": "An ordered list of identifiers classifying this entity, most general at index 0.",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "realm": {
-            "title": "The name of the realm in which this unique identifier exists",
-            "enum": ["isbn", "contributor_id", "source_role", "type", "drm"]
-          },
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": ["realm", "id"],
-        "additionalProperties": false
-      }
-    },
-    "book_data": {
+    "book_metadata": {
       "title": "Metadata about a book, as would be collected from ONIX.",
       "properties": {
         "title": {
@@ -83,60 +27,7 @@
         "contributors": {
           "title": "The array listing, in order, contributors this work is attributed to.",
           "type": "array",
-          "items": {
-            "title": "The details of the contributor",
-            "type": "object",
-            "properties": {
-              "classification":  { "$ref": "#/definitions/classification" },
-              "names": {
-                "type": "object",
-                "properties": {
-                  "display": {
-                    "title": "The name of the contributor as it should appear in general text.",
-                    "type": "string"
-                  },
-                  "sort": {
-                    "title": "The string that should be used for sorting this contributor among others.",
-                    "type": "string"
-                  },
-                  "key_names": {
-                    "title": "The part of the contributor's name most likely to start an ordered list. Surname in Western culture.",
-                    "type": "string"
-                  },
-                  "names_before_key": {
-                    "title": "Parts of the contributor's name that preceed the key_name. This would be first name and/or initials in Western culture.",
-                    "type": "string"
-                  },
-                  "names_after_key": {
-                    "title": "Parts of the contributor's name that follow the key_name. This would be first name in Eastern culture.",
-                    "type": "string"
-                  },
-                  "titles_before_names": {
-                    "title": "Titles which would preceed the contributor's name. eg. Dr., Sir, H.R.H.",
-                    "type": "string"
-                  },
-                  "prefix_to_key": {
-                    "title": "A prefix to the key_name which would not normally be included in the key_name, but which is not part of the before_key_name. eg. 'van' in Ludwig van Beethoven.",
-                    "type": "string"
-                  },
-                  "suffix_to_key": {
-                    "title": "A suffix to the key_name which would not normally be included in the key_name, but which is not part of the after_key_name. eg. 'Jr.' in Sammy Davis Jr.",
-                    "type": "string"
-                  },
-                  "letters_after_names": {
-                    "title": "Honours usually appended after a name. eg. MSci, Ph.D.",
-                    "type": "string"
-                  }
-                },
-                "required": ["display"],
-                "additionalProperties": false
-              },
-              "role": {
-                "type": "string"
-              }
-            },
-            "required": ["classification", "names", "role"]
-          }
+          "items": { "$ref": "contributor.schema.json#/"}
         },
         // TODO: Availability
         "availability": {},
@@ -206,7 +97,8 @@
               "discount_rate": {
                 "title": "The discount rate which should be applied to this price (if no publisher level rate overrides it).",
                 "type": "number",
-                ""
+                "minimum": 0,
+                "maximum": 1
               },
               "valid_from": {
                 "title": "The date time from which this price is valid.",
@@ -296,7 +188,7 @@
       },
       "additionalProperties": false
     },
-    "media_data": {
+    "media_metadata": {
       "title": "Holds information about media for this book.",
       "type": "object",
       "properties": {
@@ -371,7 +263,7 @@
       "title": "All images, epubs, mobis etc are described using this format.",
       "type": "object",
       "properties": {
-        "classification":  { "$ref": "#/definitions/classification" },
+        "classification":  { "$ref": "common.schema.json#/definitions/classification" },
         "uris": {
           "type": "array",
           "items": {

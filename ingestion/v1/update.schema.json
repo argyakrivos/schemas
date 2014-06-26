@@ -1,0 +1,12 @@
+{
+  "title": "A partial update about a first class entity (books or contributors).",
+  "type": "object",
+  "properties": {
+    "source": { "$ref": "common.schema.json#/definitions/source" }
+  },
+  "oneOf": [
+    { "$ref": "book.schema.json#/" },
+    { "$ref": "contributor.schema.json#/" }
+  ],
+  "required": ["classification", "data", "source"]
+}

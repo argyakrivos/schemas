@@ -1,0 +1,54 @@
+{
+  "title": "The details of the contributor",
+  "type": "object",
+  "properties": {
+    "classification":  { "$ref": "common.schema.json#/definitions/classification" },
+    "names": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "title": "The name of the contributor as it should appear in general text.",
+          "type": "string"
+        },
+        "sort": {
+          "title": "The string that should be used for sorting this contributor among others.",
+          "type": "string"
+        },
+        "key_names": {
+          "title": "The part of the contributor's name most likely to start an ordered list. Surname in Western culture.",
+          "type": "string"
+        },
+        "names_before_key": {
+          "title": "Parts of the contributor's name that preceed the key_name. This would be first name and/or initials in Western culture.",
+          "type": "string"
+        },
+        "names_after_key": {
+          "title": "Parts of the contributor's name that follow the key_name. This would be first name in Eastern culture.",
+          "type": "string"
+        },
+        "titles_before_names": {
+          "title": "Titles which would preceed the contributor's name. eg. Dr., Sir, H.R.H.",
+          "type": "string"
+        },
+        "prefix_to_key": {
+          "title": "A prefix to the key_name which would not normally be included in the key_name, but which is not part of the before_key_name. eg. 'van' in Ludwig van Beethoven.",
+          "type": "string"
+        },
+        "suffix_to_key": {
+          "title": "A suffix to the key_name which would not normally be included in the key_name, but which is not part of the after_key_name. eg. 'Jr.' in Sammy Davis Jr.",
+          "type": "string"
+        },
+        "letters_after_names": {
+          "title": "Honours usually appended after a name. eg. MSci, Ph.D.",
+          "type": "string"
+        }
+      },
+      "required": ["display"],
+      "additionalProperties": false
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "required": ["classification", "names", "role"]
+}

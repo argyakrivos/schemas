@@ -12,15 +12,7 @@
           "classification": [
             {
               "realm": "type",
-              "id": "full"
-            },
-            {
-              "realm": "source_role",
-              "id": "publisher_ftp"
-            },
-            {
-              "realm": "drm",
-              "id": "blinkboxbooks"
+              "id": "full_bbbdrm"
             }
           ],
           "uris": [
@@ -42,14 +34,6 @@
             {
               "realm": "type",
               "id": "sample"
-            },
-            {
-              "realm": "source_role",
-              "id": "publisher_ftp"
-            },
-            {
-              "realm": "drm",
-              "id": "none"
             }
           ],
           "uris": [

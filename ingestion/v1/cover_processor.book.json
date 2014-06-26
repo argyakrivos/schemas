@@ -13,10 +13,6 @@
             {
               "realm": "type",
               "id": "front_cover"
-            },
-            {
-              "realm": "source_role",
-              "id": "publisher_ftp"
             }
           ],
           "uris": [
