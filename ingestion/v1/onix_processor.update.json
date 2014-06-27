@@ -33,6 +33,7 @@
     "IE": true,
     "ROW": false
   },
+  "descriptions": [],
   "prices": [
     {
       "amount": 1.00,

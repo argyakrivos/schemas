@@ -39,8 +39,23 @@
       },
       "additionalProperties": false
     },
-    // TODO: Descriptions
-    "description": {},
+    "descriptions": {
+      "title": "The list of descriptions attached to a book. The first in the array is considered the most preferred.",
+      "type": "array",
+      "items": {
+        "title": "A description of the associated book.",
+        "type": "object",
+        "properties": {
+          "classification": { "$ref": "common.schema.json#/definitions/classification" },
+          "content": {
+            "title": "The content of the description.",
+            "type": "string"
+          }
+        },
+        "required": ["classification", "content"],
+        "additionalProperties": false
+      }
+    },
     "language": {
       "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
       "type": "array",
