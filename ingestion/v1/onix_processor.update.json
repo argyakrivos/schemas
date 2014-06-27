@@ -33,6 +33,19 @@
     "IE": true,
     "ROW": false
   },
+  "prices": [
+    {
+      "amount": 1.00,
+      "currency": "GBP",
+      "includes_tax?": true,
+      "agency?": true,
+      "applicable_regions": {
+        "GB": true,
+        "ROW": false
+      },
+      "discount_rate": 0.4
+    }
+  ],
   "source": {
     "delivered_at": "2014-06-23T12:03:14.23Z",
     "uri": "azure://path.to/a/folder/and/a/file.xml",

@@ -74,8 +74,7 @@
           },
           "currency": {
             "title": "The ISO-4217 currency code associated with this price.",
-            "type": "string",
-            "pattern": "^[A-Z]{3}$"
+            "$ref": "common.schema.json#/definitions/iso-4217"
           },
           "includes_tax?": {
             "title": "Whether this price includes tax or not.",
@@ -95,8 +94,14 @@
             "title": "The date time from which this price is valid.",
             "type": "string",
             "format": "date-time"
+          },
+          "applicable_regions": {
+            "title": "The regions where this price can be used",
+            "$ref": "common.schema.json#/definitions/regions"
+          },
+          "tax": {
+            // TODO
           }
-          // TODO: Regions, excluding regions, tax
         },
         "required": ["amount", "currency", "includes_tax?", "agency?"],
         "additionalProperties": false
