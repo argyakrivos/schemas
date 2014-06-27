@@ -48,7 +48,7 @@
         "$ref": "#/definitions/iso639-2b"
       }
     },
-    // TODO: Sellable in / Not sellable in
+    "regional_rights": { "$ref": "common.schema.json#/definitions/regions" },
     "pages": {
       "title": "Number of pages in an equivalent physical book",
       "type": "integer"

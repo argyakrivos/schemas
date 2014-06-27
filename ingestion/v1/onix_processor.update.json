@@ -28,6 +28,11 @@
       "code": "FIC050000"
     }
   ],
+  "regional_rights": {
+    "GB": true,
+    "IE": true,
+    "ROW": false
+  },
   "source": {
     "delivered_at": "2014-06-23T12:03:14.23Z",
     "uri": "azure://path.to/a/folder/and/a/file.xml",

@@ -120,6 +120,16 @@
         }
       },
       "required": ["classification", "uris", "size"]
+    },
+    "regions": {
+      "title": "An object which defines a series of regions which explicitly are, explictly are not and implicitly included in the object this field is included in.",
+      "type": "object",
+      "patternProperties": {
+        "^([A-Z]{2}|ROW|WORLD)$": {
+          "title": "The ISO 3166-2 code, ROW (rest of world) or WORLD (the whole world) which we wish to define applicability for.",
+          "type": "boolean"
+        }
+      }
     }
   }
 }
