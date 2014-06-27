@@ -56,7 +56,21 @@
         },
         "system": {
           "title": "The system which processed this asset. Not required as the message metadata contains the fallback.",
-          "type": "string"
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "The name of the service which did the processing to generate the information in this document. Format: organisation/repo (github).",
+              "type":"string",
+              "pattern": "^[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+$"
+            },
+            "version": {
+              "title": "The (semver) Version number of the system which generated this information.",
+              "type": "string",
+              "pattern": "^((\\d+)\\.(\\d+)\\.(\\d+))(?:-([\\dA-Za-z\\-]+(?:\\.[\\dA-Za-z\\-]+)*))?(?:\\+([\\dA-Za-z\\-]+(?:\\.[\\dA-Za-z\\-]+)*))?$"
+            }
+          },
+          "required": ["name", "version"],
+          "additionalProperties": false
         },
         "processed_at": {
           "title": "The ISO 8601 timestamp of when this asset was processed. Not required as the timestamp of the message is the fallback.",
