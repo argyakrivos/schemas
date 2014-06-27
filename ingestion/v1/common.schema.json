@@ -82,15 +82,15 @@
                 "type": "integer"
               }
             }
-          }//,
-          // PICK UP HERE: I just added this
-          //"additionalProperties": false
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
     },
     "media_item": {
-      "title": "All images, epubs, mobis etc are described using this format.",
+      "title": "A mix-in for describing media items.",
+      // NB. Whatever you mix this into needs to define whether additionalProperties are allowed as this does not.
       "type": "object",
       "properties": {
         "classification":  { "$ref": "common.schema.json#/definitions/classification" },

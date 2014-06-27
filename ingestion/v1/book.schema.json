@@ -188,31 +188,31 @@
   "additionalProperties": { "$ref": "common.schema.json#/definitions/source" },
   "definitions": {
     "epub_media": {
-      // "title": "This holds info about one or more epubs.",
-      // "type": "object",
-      // "properties": {
-      //   "epubs": {
-      //     "type": "array",
-      //     "items": {
-      //       "title": "The additional components of the media item which are specific to epubs.",
-      //       "properties": {
-      //         "$ref": "common.schema.json#/definitions/media_item",
-      //         "keyfile": {
-      //           "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
-      //           "type": "string",
-      //           "format": "uri"
-      //         },
-      //         "wordcount": {
-      //           "title": "The number of words in the associated epub.",
-      //           "type": "integer"
-      //         }
-      //       },
-      //       "required": ["wordcount"]//,
-      //       //"additionalProperties": false
-      //     }
-      //   }
-      // },
-      // "additionalProperties": false
+      "title": "This holds info about one or more epubs.",
+      "type": "object",
+      "properties": {
+        "epubs": {
+          "type": "array",
+          "items": {
+            "title": "The additional components of the media item which are specific to epubs.",
+            "properties": {
+              "$ref": "common.schema.json#/definitions/media_item",
+              "keyfile": {
+                "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
+                "type": "string",
+                "format": "uri"
+              },
+              "wordcount": {
+                "title": "The number of words in the associated epub.",
+                "type": "integer"
+              }
+            },
+            "required": ["wordcount"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

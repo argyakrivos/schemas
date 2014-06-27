@@ -49,12 +49,7 @@
     "media": {
       "title": "The media types that can be associated with this contributor.",
       "type": "object",
-      "properties": {
-        "images": {
-          "type": "array"//,
-          //"items": { "$ref": "common.schema.json#/definitions/image_media" }
-        }
-      }
+      "properties": { "$ref": "common.schema.json#/definitions/image_media" }
     },
     "biography": {
       "title": "A biography associated with this contributor. HTML or plan text.",
