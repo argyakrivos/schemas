@@ -58,8 +58,12 @@
     "role": {
       "title": "A contributor when assocaited with a book may have a role.",
       "type": "string"
+    },
+    "source": {
+      "title": "The providence of the data contained within this object.",
+      "$ref": "common.schema.json#/definitions/source"
     }
   },
-  "required": ["classification"],
-  "additionalProperties": { "$ref": "common.schema.json#/definitions/source" }
+  "required": ["classification", "source"],
+  "additionalProperties": false
 }

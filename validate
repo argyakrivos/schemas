@@ -43,6 +43,7 @@ def validate_json(schema_file, json_file)
     begin
       JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file), validate_schema: true)
     rescue
+      puts $!.backtrace
       [$!.message]
     end
   end

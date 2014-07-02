@@ -4,6 +4,10 @@
   "properties": {
     "classification": { "$ref": "common.schema.json#/definitions/classification" },
     // These are pieces of information we'd expect from an ONIX file
+    "isbn": {
+      "title": "The ISBN of the book. This field may not be useful if classifiers more general than ISBN are used.",
+      "type": "string"
+    },
     "title": {
       "title": "The title of the book",
       "type": "string"
@@ -20,8 +24,27 @@
         "required": ["role"]
       }
     },
-    // TODO: Availability
-    "availability": {},
+    "availability": {
+      "title": "Details about the availability of this book item according to the publisher",
+      "type": "object",
+      "properties": {
+        "notification_type": {
+          "$ref": "#/definitions/availability"
+        },
+        "publishing_status": {
+          "$ref": "#/definitions/availability"
+        },
+        "availability_code": {
+          "$ref": "#/definitions/availability"
+        },
+        "product_availability":  {
+          "$ref": "#/definitions/availability"
+        },
+        "blinkbox_books": {
+          "$ref": "#/definitions/availability"
+        }
+      }
+    },
     "dates": {
       "title": "Information about dates relevant to the publishing of this book.",
       "type": "object",
@@ -50,6 +73,10 @@
           "content": {
             "title": "The content of the description.",
             "type": "string"
+          },
+          "source": {
+            "title": "If the source of this element is different to that of the parent document (eg. with merged documents) then the details should be contained here.",
+            "$ref": "common.schema.json#/definitions/source"
           }
         },
         "required": ["classification", "content"],
@@ -202,10 +229,14 @@
         { "$ref": "#/definitions/epub_media" },
         { "$ref": "common.schema.json#/definitions/image_media" }
       ]
+    },
+    "source": {
+      "title": "The providence of the data contained within this object.",
+      "$ref": "common.schema.json#/definitions/source"
     }
   },
-  "required": ["classification"],
-  "additionalProperties": { "$ref": "common.schema.json#/definitions/source" },
+  "required": ["classification", "source"],
+  "additionalProperties": false,
   "definitions": {
     "epub_media": {
       "title": "This holds info about one or more epubs.",
@@ -232,6 +263,22 @@
           }
         }
       },
+      "additionalProperties": false
+    },
+    "availability": {
+      "title": "An individual availability property",
+      "type": "object",
+      "properties": {
+        "available": {
+          "title": "Whether or not this book is available for sale by consequence of this availability metric",
+          "type": "boolean"
+        },
+        "description": {
+          "title": "A text description of why the 'available' setting is what it is. Used for informing the content manager.",
+          "type": "string"
+        }
+      },
+      "required": ["available"],
       "additionalProperties": false
     }
   }
