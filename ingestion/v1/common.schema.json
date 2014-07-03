@@ -36,18 +36,16 @@
       }
     },
     "source": {
-      "title": "Contains information about the provenance of the data in this document. For fragments of info this will be a 'source_desintation' object, for merged objects this will be an object with each value detailing the provenance of data for its corresponding key.",
-      "oneOf": [
-        {
-          "title": "All data for this document comes from one source. This object details that source.",
+      "title": "Contains information about the provenance of the data in this document. This will be an object with each value detailing the provenance of data for its corresponding key.",
+      "type": "object",
+      "properties": {
+        "$remaining": {
+          "title": "If a key of the master document isn't specified here, then this is the fallback source data.",
           "$ref": "#/definitions/source_description"
-        },
-        {
-          "title": "The data in this document comes from many places, every key of the document is duplicated here, with provenance information for each as its value.",
-          "type": "object",
-          "additionalProperties": { "$ref": "#/definitions/source_description" }
         }
-      ]
+      },
+      "required": ["$remaining"],
+      "additionalProperties": { "$ref": "#/definitions/source_description" }
     },
     "source_description": {
       "type": "object",

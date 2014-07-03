@@ -41,9 +41,11 @@
     ]
   },
   "source": {
-    "deliveredAt": "2014-06-23T13:22:17.35Z",
-    "uri": "azure://path.to/a/folder/and/a/book-cover.jpg",
-    "role": "publisher_ftp",
-    "username": "randomhouse_uk"
+    "$remaining": {
+      "deliveredAt": "2014-06-23T13:22:17.35Z",
+      "uri": "azure://path.to/a/folder/and/a/book-cover.jpg",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk"
+    }
   }
 }

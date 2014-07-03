@@ -12,8 +12,10 @@
   },
   "biography": "Zaphod's just some guy, you know?",
   "source": {
-    "deliveredAt": "2014-06-23T13:22:17.35Z",
-    "role": "content_manager",
-    "username": "roberts@blinkbox.com"
+    "$remaining": {
+      "deliveredAt": "2014-06-23T13:22:17.35Z",
+      "role": "content_manager",
+      "username": "roberts@blinkbox.com"
+    }
   }
 }
