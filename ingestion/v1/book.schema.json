@@ -189,7 +189,7 @@
               },
               "code": {
                 "title": "The BISAC code",
-                // TODO: enum of valid BISAC codes
+                // I could list an enum of valid BISAC codes, but that seems excessive
                 "type": "string"
               }
             },
@@ -205,7 +205,7 @@
               },
               "code": {
                 "title": "The BIC code",
-                // TODO: enum of valid BIC codes
+                // I could list an enum of valid BIC codes, but that seems excessive
                 "type": "string"
               }
             },
@@ -219,7 +219,6 @@
               "type": {
                 "type": "string",
                 "pattern": "^(?!BI(?:SA)?C).*$"
-                // TODO: Disallowed values: BIC and BISAC
               },
               "code": {
                 "title": "The text used for this subject code",
