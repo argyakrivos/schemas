@@ -18,31 +18,31 @@
           "title": "The string that should be used for sorting this contributor among others.",
           "type": "string"
         },
-        "key_names": {
+        "keyNames": {
           "title": "The part of the contributor's name most likely to start an ordered list. Surname in Western culture.",
           "type": "string"
         },
-        "names_before_key": {
+        "namesBeforeKey": {
           "title": "Parts of the contributor's name that preceed the key_name. This would be first name and/or initials in Western culture.",
           "type": "string"
         },
-        "names_after_key": {
+        "namesAfterKey": {
           "title": "Parts of the contributor's name that follow the key_name. This would be first name in Eastern culture.",
           "type": "string"
         },
-        "titles_before_names": {
+        "titlesBeforeNames": {
           "title": "Titles which would preceed the contributor's name. eg. Dr., Sir, H.R.H.",
           "type": "string"
         },
-        "prefix_to_key": {
+        "prefixToKey": {
           "title": "A prefix to the key_name which would not normally be included in the key_name, but which is not part of the before_key_name. eg. 'van' in Ludwig van Beethoven.",
           "type": "string"
         },
-        "suffix_to_key": {
+        "suffixToKey": {
           "title": "A suffix to the key_name which would not normally be included in the key_name, but which is not part of the after_key_name. eg. 'Jr.' in Sammy Davis Jr.",
           "type": "string"
         },
-        "letters_after_names": {
+        "lettersAfterNames": {
           "title": "Honours usually appended after a name. eg. MSci, Ph.D.",
           "type": "string"
         }

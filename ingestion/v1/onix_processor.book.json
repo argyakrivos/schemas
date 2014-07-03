@@ -10,7 +10,23 @@
       "id": "randomhouse_uk"
     }
   ],
+  "format": "digital",
   "title": "Two Heads are Better Than One",
+  "relatedProducts": [
+    {
+      "classification": [
+        {
+          "realm": "isbn",
+          "id": "9780111222333"
+        },
+        {
+          "realm": "format",
+          "id": "print"
+        }
+      ],
+      "relation": "equivalent"
+    }
+  ],
   "contributors": [
     {
       "classification": [
@@ -33,7 +49,7 @@
       "code": "FIC050000"
     }
   ],
-  "regional_rights": {
+  "regionalRights": {
     "GB": true,
     "IE": true,
     "ROW": false
@@ -43,9 +59,9 @@
     {
       "amount": 1.00,
       "currency": "GBP",
-      "includes_tax?": true,
+      "includesTax?": true,
       "agency?": true,
-      "applicable_regions": {
+      "applicableRegions": {
         "GB": true,
         "ROW": false
       },
@@ -61,7 +77,7 @@
     }
   ],
   "source": {
-    "delivered_at": "2014-06-23T12:03:14.23Z",
+    "deliveredAt": "2014-06-23T12:03:14.23Z",
     "uri": "azure://path.to/a/folder/and/a/file.xml",
     "role": "publisher_ftp",
     "username": "randomhouse_uk"

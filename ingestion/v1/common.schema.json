@@ -22,7 +22,8 @@
               "isbn",           // Used to classify books
               "contributor_id", // Used to classify contributors
               "type",           // Used to ensure different types of the same asset don't overwrite (eg. full & sample epubs)
-              "source_key"      // A key used to allow a reprocessing of the same file to replace the old version
+              "source_key",     // A key used to allow a reprocessing of the same file to replace the old version
+              "format"          // Used in relatedProducts to define what the format of the related book is.
             ]
           },
           "id": {
@@ -51,7 +52,7 @@
     "source_description": {
       "type": "object",
       "properties": {
-        "delivered_at": {
+        "deliveredAt": {
           "title": "The ISO 8601 timestamp of when this asset is considered to be valid from.",
           "type": "string",
           "format": "date-time"
@@ -87,13 +88,13 @@
           "required": ["name", "version"],
           "additionalProperties": false
         },
-        "processed_at": {
+        "processedAt": {
           "title": "The ISO 8601 timestamp of when this asset was processed. Not required as the timestamp of the message is the fallback.",
           "type": "string",
           "format": "date-time"
         }
       },
-      "required": ["delivered_at", "role", "username"],
+      "required": ["deliveredAt", "role", "username"],
       "additionalProperties": false
     },
     "image_media": {
@@ -167,6 +168,10 @@
           "type": "boolean"
         }
       }
+    },
+    "format": {
+      "title": "The format of a book, eg. digital or print",
+      "enum": ["digital", "print"]
     }
   }
 }
