@@ -259,6 +259,24 @@
       "required": ["title"],
       "additionalProperties": false
     },
+    "related": {
+      "title": "Other books related to this one.",
+      "type": "array",
+      "items": {
+        "title": "The details of a related book",
+        "type": "object",
+        "properties": {
+          "classification": {
+            "title": "The details of the related book. This should include a format (eg. 'print')",
+            "$ref": "common.schema.json#/definitions/classification"
+          },
+          "relation": {
+            "title": "A word which completes the sentence: 'The related book defined by `/related[n]/classification` is ________ to the one described in the parent document by `/classification`.'",
+            "enum": ["equivalent"]
+          }
+        }
+      }
+    },
     // We'd expect media elements from an EPUB or COVER processor
     "media": {
       "anyOf": [

@@ -12,7 +12,7 @@
   ],
   "format": "digital",
   "title": "Two Heads are Better Than One",
-  "relatedProducts": [
+  "related": [
     {
       "classification": [
         {
@@ -65,13 +65,13 @@
         "GB": true,
         "ROW": false
       },
-      "discount_rate": 0.4,
+      "discountRate": 0.4,
       "tax": [
         {
           "rate": "S",
-          "taxable_amount": 0.83,
+          "taxableAmount": 0.83,
           "amount": 0.17,
-          "percentage": 20
+          "percent": 20
         }
       ]
     }
