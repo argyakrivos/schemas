@@ -3,6 +3,10 @@
     {
       "realm": "isbn",
       "id": "9780111222333"
+    },
+    {
+      "realm": "publisher",
+      "id": "randomhouse_uk"
     }
   ],
   "title": "Two Heads are Better Than One",

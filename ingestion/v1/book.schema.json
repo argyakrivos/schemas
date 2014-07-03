@@ -41,6 +41,7 @@
           "$ref": "#/definitions/availability"
         },
         "blinkbox_books": {
+          "title": "Custom availability code for manual undistributions.",
           "$ref": "#/definitions/availability"
         }
       }

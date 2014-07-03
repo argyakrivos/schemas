@@ -18,6 +18,7 @@
           "realm": {
             "title": "The name of the realm in which this unique identifier exists",
             "enum": [
+              "publisher",      // Used to differentiate between the same book from two publishers
               "isbn",           // Used to classify books
               "contributor_id", // Used to classify contributors
               "type",           // Used to ensure different types of the same asset don't overwrite (eg. full & sample epubs)
