@@ -317,8 +317,7 @@
             //"additionalProperties": false
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "availability": {
       "title": "An individual availability property",

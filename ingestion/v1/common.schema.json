@@ -119,8 +119,7 @@
           },
           "additionalProperties": false
         }
-      },
-      "additionalProperties": false
+      }
     },
     "media_item": {
       "title": "A mix-in for describing media items.",
