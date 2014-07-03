@@ -1,4 +1,5 @@
 {
+  "$schema": "book.schema.json",
   "classification": [
     {
       "realm": "isbn",

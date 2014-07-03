@@ -46,8 +46,7 @@
           "type": "object",
           "additionalProperties": { "$ref": "#/definitions/source_description" }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "source_description": {
       "type": "object",

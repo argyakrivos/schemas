@@ -2,6 +2,10 @@
   "title": "Metadata about a book.",
   "type": "object",
   "properties": {
+    "$schema": {
+      "title": "The schema for this document.",
+      "type": "string"
+    },
     "classification": { "$ref": "common.schema.json#/definitions/classification" },
     // These are pieces of information we'd expect from an ONIX file
     "isbn": {
@@ -259,8 +263,8 @@
                 "type": "integer"
               }
             },
-            "required": ["wordcount"],
-            "additionalProperties": false
+            "required": ["wordcount"]
+            //"additionalProperties": false
           }
         }
       },

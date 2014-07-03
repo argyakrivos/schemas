@@ -2,6 +2,10 @@
   "title": "The details of the contributor",
   "type": "object",
   "properties": {
+    "$schema": {
+      "title": "The schema for this document.",
+      "type": "string"
+    },
     "classification":  { "$ref": "common.schema.json#/definitions/classification" },
     "names": {
       "type": "object",
@@ -64,6 +68,6 @@
       "$ref": "common.schema.json#/definitions/source"
     }
   },
-  "required": ["classification", "source"],
+  "required": ["classification"],
   "additionalProperties": false
 }

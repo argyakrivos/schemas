@@ -41,7 +41,7 @@ end
 def validate_json(schema_file, json_file)
   Dir.chdir(File.dirname(json_file)) do
     begin
-      JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file), validate_schema: true)
+      JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file))
     rescue
       puts $!.backtrace
       [$!.message]

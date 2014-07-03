@@ -25,6 +25,7 @@
             "uri": "http://container.azure.com/path/to/file.epub"
           }
         ],
+        "wordcount": 37462,
         "size": 25485
       }
     ]
