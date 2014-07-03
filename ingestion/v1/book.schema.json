@@ -147,7 +147,28 @@
             "$ref": "common.schema.json#/definitions/regions"
           },
           "tax": {
-            // TODO
+            "title": "The list of taxes which need to be (includes_tax? = false), or have been (includes_tax? = true) applied to the amount. This is an array to be able to cope with banded taxing.",
+            "type": "array",
+            "items": {
+              "rate": {
+                "title": "The rate of tax. See ONIX 2.1 codelist 62 for details.",
+                "enum": ["H","R","S","P","Z"]
+              },
+              "percent": {
+                "type": "The percentage of the taxable_amount which should be considered the tax.",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "amount": {
+                "type": "The amount of money which the above percentage translates to (in the same currency).",
+                "type": "number"
+              },
+              "taxable_amount": {
+                "type": "The amount of money which is taxable at the specified rate.",
+                "type": "number"
+              }
+            }
           }
         },
         "required": ["amount", "currency", "includes_tax?", "agency?"],
@@ -264,6 +285,7 @@
               }
             },
             "required": ["wordcount"]
+            // Removed this because the $ref isn't being scanned for allowed properties.
             //"additionalProperties": false
           }
         }
