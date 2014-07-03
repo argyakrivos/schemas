@@ -76,7 +76,7 @@
         "properties": {
           "classification": { "$ref": "common.schema.json#/definitions/classification" },
           "content": {
-            "title": "The content of the description.",
+            "title": "The content of the description. Will be interpreted as HTML.",
             "type": "string"
           },
           "source": {
