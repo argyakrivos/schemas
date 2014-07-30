@@ -19,7 +19,7 @@
             "id": "origin"
           },
           {
-            "realm": "process",
+            "realm": "status",
             "id": "failure"
           }
         ],
