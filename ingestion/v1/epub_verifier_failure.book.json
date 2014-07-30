@@ -17,16 +17,21 @@
           {
             "realm": "type",
             "id": "origin"
-          }
-        ],
-        "uris": [
+          },
           {
-            "type": "static",
-            "uri": "http://container.azure.com/path/to/file.epub"
+            "realm": "process",
+            "id": "failure"
           }
         ],
-        "wordcount": 37462,
-        "size": 25485
+        "uris": [],
+        "size": 25485,
+        "failure": {
+          "reason": "A short message explaining the failure",
+          "data": {
+            "backtrace": "blah blah\nblah",
+            "whatever": "things that might be useful."
+          }
+        }
       }
     ]
   },
