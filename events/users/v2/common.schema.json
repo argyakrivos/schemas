@@ -1,0 +1,63 @@
+{
+  "title": "Common components for other schema",
+  "definitions": {
+    "user": {
+      "title": "Details about a user associated to this event.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "The blinkbox books ID for this user.",
+          "type": "integer"
+        },
+        "username": {
+          "title": "The email address the user registered with.",
+          "type": "string",
+          "format": "email"
+        },
+        "firstName": {
+          "title": "The most recent first name we have on file for this user.",
+          "format": "string"
+        },
+        "lastName": {
+          "title": "The most recent last name we have on file for this user.",
+          "format": "string"
+        },
+        "allowMarketingCommunications": {
+          "title": "Whether or not the user has opted into (true) or opted out of (false) marketing communications from us.",
+          "format": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["id", "username", "firstName", "lastName", "allowMarketingCommunications"]
+    },
+    "client": {
+      "title": "Details about a client device.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "The blinkbox books ID for this user.",
+          "type": "integer"
+        },
+        "name": {
+          "title": "The name the user has given to this client device.",
+          "format": "string"
+        },
+        "brand": {
+          "title": "The brand of this client device. eg. Apple",
+          "format": "string"
+        },
+        "model": {
+          "title": "The model of this client device. eg. iPhone 5S",
+          "format": "string"
+        },
+        "os": {
+          "title": "The OS name & version this client device is using. eg. iOS 7.0.1",
+          "format": "string"
+        }
+      },
+      "additionalProperties": false,
+      // TODO: are the other fields mandatory?
+      "required": ["id"]
+    }
+  }
+}

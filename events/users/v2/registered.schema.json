@@ -1,0 +1,21 @@
+{
+  "title": "The structure of a user registration message.",
+  "type": "object",
+  "properties": {
+    "event": {
+      "title": "The type of event which has occurred",
+      "enum": ["user.registered"]
+    },
+    "timestamp": {
+      "title": "The timestamp at which this event occurred.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "title": "The most recent information we have about the user affected by this event.",
+      "$ref": "common.schema.json#/definitions/user"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["event", "timestamp", "user"]
+}

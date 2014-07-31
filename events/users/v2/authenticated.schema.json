@@ -1,0 +1,25 @@
+{
+  "title": "The struture of a message indicating that a user has authenticated.",
+  "type": "object",
+  "properties": {
+    "event": {
+      "title": "The type of event which has occurred",
+      "enum": ["user.authenticated"]
+    },
+    "timestamp": {
+      "title": "The timestamp at which this event occurred.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "title": "The most recent information we have about the user affected by this event.",
+      "$ref": "common.schema.json#/definitions/user"
+    },
+    "client": {
+      "title": "Details about the client identified by the client token used during authentication.",
+      "$ref": "common.schema.json#/definitions/client"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["event", "timestamp", "user"]
+}
