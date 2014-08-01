@@ -2,9 +2,9 @@
   "title": "The structure of a user registration message.",
   "type": "object",
   "properties": {
-    "event": {
+    "$schema": {
       "title": "The type of event which has occurred",
-      "enum": ["user.registered"]
+      "enum": ["events.user.registered.v2"]
     },
     "timestamp": {
       "title": "The timestamp at which this event occurred.",

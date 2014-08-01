@@ -2,9 +2,9 @@
   "title": "The struture of a message indicating that a user has authenticated.",
   "type": "object",
   "properties": {
-    "event": {
+    "$schema": {
       "title": "The type of event which has occurred",
-      "enum": ["user.authenticated"]
+      "enum": ["events.user.authenticated.v2"]
     },
     "timestamp": {
       "title": "The timestamp at which this event occurred.",

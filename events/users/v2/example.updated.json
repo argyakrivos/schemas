@@ -1,5 +1,5 @@
 {
-  "event": "user.updated",
+  "$schema": "events.user.updated.v2",
   "timestamp": "2013-12-30T19:15:23Z",
   "user": {
     "id": 123,

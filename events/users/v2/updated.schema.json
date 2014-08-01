@@ -2,9 +2,9 @@
   "title": "The structure of a user update message.",
   "type": "object",
   "properties": {
-    "event": {
+    "$schema": {
       "title": "The type of event which has occurred",
-      "enum": ["user.updated"]
+      "enum": ["events.user.updated.v2"]
     },
     "timestamp": {
       "title": "The timestamp at which this event occurred.",
