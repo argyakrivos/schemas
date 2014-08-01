@@ -4,7 +4,8 @@
   "properties": {
     "$schema": {
       "title": "The type of event which has occurred",
-      "enum": ["events.user.updated.v2"]
+      "type": "string",
+      "pattern": "^events\.user\.updated\.v2"
     },
     "timestamp": {
       "title": "The timestamp at which this event occurred.",
@@ -21,5 +22,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["event", "timestamp", "user","previousDetails"]
+  "required": ["$schema", "timestamp", "user","previousDetails"]
 }
