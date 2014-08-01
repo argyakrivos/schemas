@@ -1,0 +1,26 @@
+{
+  "title": "The structure of a user update message.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "The type of event which has occurred",
+      "type": "string",
+      "pattern": "^events\.user\.updated\.v2"
+    },
+    "timestamp": {
+      "title": "The timestamp at which this event occurred.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "title": "The most recent information we have about the user affected by this event.",
+      "$ref": "common.schema.json#/definitions/user"
+    },
+    "previousDetails": {
+      "title": "The details of the affected user before they made the update.",
+      "$ref": "common.schema.json#/definitions/user"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["$schema", "timestamp", "user","previousDetails"]
+}

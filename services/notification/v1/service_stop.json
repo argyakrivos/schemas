@@ -1,8 +1,0 @@
-{
-  "service": {
-    "name": "marvin/onix_processor",
-    "version": "0.9.13"
-  },
-  "type": "service.stop",
-  "timestamp": 1400600895
-}
