@@ -1,0 +1,12 @@
+{
+  "$schema": "events.exacttarget.triggeredsend.v1",
+  "timestamp": "2013-12-30T19:15:23Z",
+  "triggeredEmailName" : "Dave_test_purchase",
+  "subscriber": {
+    "emailAddress": "davido@blinkbox.com",
+    "subscriberKey": "davido@blinkbox.com",
+    "attributes": [ {"name": "isbn", "value": "9780007322497"},
+                    {"name": "title", "value": "A Catcher In The Rye"}]
+  }
+  
+}

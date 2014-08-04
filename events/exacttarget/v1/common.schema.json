@@ -1,0 +1,45 @@
+{
+  "title": "Common components for Exact Target Integration schema",
+  "definitions": {
+    "attribute": {
+      "title": "Details about an Exact Target attribute",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "The Exact Target attribute name",
+          "type": "string"
+        },
+        "value": {
+          "title": "The Exact Target attribute value.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["name", "value"]
+    },
+    "subscriber": {
+      "title": "Details about an Exact Target subscriber",
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "title": "The subscriber email address",
+          "type": "string"
+        },
+        "subscriberKey": {
+          "title": "The subscriber key. TBC what does this actually mean?",
+          "type": "string"
+        },
+        "attributes": {
+          "title" : "subscriber attributes",
+          "type" : "array",
+          "items": {
+            "title" : "Attribute",
+            "$ref": "common.schema.json#/definitions/attribute"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": ["emailAddress", "subscriberKey"]
+    }
+  }
+}
