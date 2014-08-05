@@ -4,7 +4,7 @@
   "triggeredEmailName" : "Dave_test_purchase",
   "subscriber": {
     "emailAddress": "davido@blinkbox.com",
-    "subscriberKey": "davido@blinkbox.com",
+    "subscriberKey": "1234",
     "attributes": [ {"name": "isbn", "value": "9780007322497"},
                     {"name": "title", "value": "A Catcher In The Rye"}]
   }
