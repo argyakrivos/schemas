@@ -124,7 +124,7 @@
       // NB. Whatever you mix this into needs to define whether additionalProperties are allowed as this does not.
       "type": "object",
       "properties": {
-        "classification":  { "$ref": "common.schema.json#/definitions/classification" },
+        "classification":  { "$ref": "#/definitions/classification" },
         "uris": {
           "type": "array",
           "items": {

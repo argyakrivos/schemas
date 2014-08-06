@@ -6,13 +6,13 @@
       "title": "The schema for this document.",
       "type": "string"
     },
-    "classification": { "$ref": "common.schema.json#/definitions/classification" },
+    "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
     // These are pieces of information we'd expect from an ONIX file
     "isbn": {
       "title": "The ISBN of the book. This field may not be useful if classifiers more general than ISBN are used.",
       "type": "string"
     },
-    "format": { "$ref": "common.schema.json#/definitions/format" },
+    "format": { "$ref": "../../common/v2.schema.json#/definitions/format" },
     "title": {
       "title": "The title of the book",
       "type": "string"
@@ -29,7 +29,7 @@
       "title": "The array listing, in order, contributors this work is attributed to. If there are no contributors for a book, this should be an empty array, not missing.",
       "type": "array",
       "items": {
-        "$ref": "contributor.schema.json#/",
+        "$ref": "../../contributor/metadata/v2.schema.json#/",
         "required": ["role"]
       }
     },
@@ -79,14 +79,14 @@
         "title": "A description of the associated book.",
         "type": "object",
         "properties": {
-          "classification": { "$ref": "common.schema.json#/definitions/classification" },
+          "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
           "content": {
             "title": "The content of the description. Will be interpreted as HTML.",
             "type": "string"
           },
           "source": {
             "title": "If the source of this element is different to that of the parent document (eg. with merged documents) then the details should be contained here.",
-            "$ref": "common.schema.json#/definitions/source"
+            "$ref": "../../common/v2.schema.json#/definitions/source"
           }
         },
         "required": ["classification", "content"],
@@ -100,7 +100,7 @@
         "$ref": "#/definitions/iso639-2b"
       }
     },
-    "regionalRights": { "$ref": "common.schema.json#/definitions/regions" },
+    "regionalRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
     "pages": {
       "title": "Number of pages in an equivalent physical book",
       "type": "integer"
@@ -126,7 +126,7 @@
           },
           "currency": {
             "title": "The ISO-4217 currency code associated with this price.",
-            "$ref": "common.schema.json#/definitions/iso-4217"
+            "$ref": "../../common/v2.schema.json#/definitions/iso-4217"
           },
           "includesTax?": {
             "title": "Whether this price includes tax or not.",
@@ -149,7 +149,7 @@
           },
           "applicableRegions": {
             "title": "The regions where this price can be used",
-            "$ref": "common.schema.json#/definitions/regions"
+            "$ref": "../../common/v2.schema.json#/definitions/regions"
           },
           "tax": {
             "title": "The list of taxes which need to be (includes_tax? = false), or have been (includes_tax? = true) applied to the amount. This is an array to be able to cope with banded taxing.",
@@ -268,7 +268,7 @@
         "properties": {
           "classification": {
             "title": "The details of the related book. This should include a format (eg. 'print')",
-            "$ref": "common.schema.json#/definitions/classification"
+            "$ref": "../../common/v2.schema.json#/definitions/classification"
           },
           "relation": {
             "title": "A word which completes the sentence: 'The related book defined by `/related[n]/classification` is ________ to the one described in the parent document by `/classification`.'",
@@ -281,12 +281,12 @@
     "media": {
       "anyOf": [
         { "$ref": "#/definitions/epub_media" },
-        { "$ref": "common.schema.json#/definitions/image_media" }
+        { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
       ]
     },
     "source": {
       "title": "The providence of the data contained within this object.",
-      "$ref": "common.schema.json#/definitions/source"
+      "$ref": "../../common/v2.schema.json#/definitions/source"
     }
   },
   "required": ["classification", "source"],
@@ -301,7 +301,7 @@
           "items": {
             "title": "The additional components of the media item which are specific to epubs.",
             "properties": {
-              "$ref": "common.schema.json#/definitions/media_item",
+              "$ref": "../../common/v2.schema.json#/definitions/media_item",
               "keyfile": {
                 "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
                 "type": "string",

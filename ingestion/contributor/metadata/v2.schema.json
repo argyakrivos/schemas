@@ -6,7 +6,7 @@
       "title": "The schema for this document.",
       "type": "string"
     },
-    "classification":  { "$ref": "common.schema.json#/definitions/classification" },
+    "classification":  { "$ref": "../../common/v2.schema.json#/definitions/classification" },
     "names": {
       "type": "object",
       "properties": {
@@ -53,7 +53,7 @@
     "media": {
       "title": "The media types that can be associated with this contributor.",
       "type": "object",
-      "properties": { "$ref": "common.schema.json#/definitions/image_media" }
+      "properties": { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
     },
     "biography": {
       "title": "A biography associated with this contributor. HTML or plan text.",
@@ -65,7 +65,7 @@
     },
     "source": {
       "title": "The providence of the data contained within this object.",
-      "$ref": "common.schema.json#/definitions/source"
+      "$ref": "../../common/v2.schema.json#/definitions/source"
     }
   },
   "required": ["classification"],
