@@ -1,4 +1,5 @@
 {
+  "$schema": "ingestion.contributor.metadata.v2",
   "classification": [
     {
       "realm": "contributor_id",

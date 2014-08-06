@@ -4,7 +4,8 @@
   "properties": {
     "$schema": {
       "title": "The schema for this document.",
-      "type": "string"
+      "type": "string",
+      "pattern": "^ingestion.book.metadata.v2$"
     },
     "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
     // These are pieces of information we'd expect from an ONIX file
@@ -289,7 +290,7 @@
       "$ref": "../../common/v2.schema.json#/definitions/source"
     }
   },
-  "required": ["classification", "source"],
+  "required": ["classification", "source", "$schema"],
   "additionalProperties": false,
   "definitions": {
     "epub_media": {

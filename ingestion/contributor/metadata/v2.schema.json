@@ -4,7 +4,8 @@
   "properties": {
     "$schema": {
       "title": "The schema for this document.",
-      "type": "string"
+      "type": "string",
+      "pattern": "^ingestion.contributor.metadata.v2$"
     },
     "classification":  { "$ref": "../../common/v2.schema.json#/definitions/classification" },
     "names": {

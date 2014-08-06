@@ -1,5 +1,5 @@
 {
-  "$schema": "contributor.schema.json",
+  "$schema": "ingestion.contributor.metadata.v2",
   "classification": [
     {
       "realm": "contributor_id",
