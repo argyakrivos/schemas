@@ -1,5 +1,5 @@
 {
-  "title": "Common components for Exact Target Integration schema",
+  "title": "Common components for Email schemas",
   "definitions": {
     "user": {
       "title": "Details about a bbb user",
