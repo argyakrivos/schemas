@@ -1,5 +1,5 @@
 {
-  "$schema": "events.mailer.sendemail.v2",
+  "$schema": "events.email.send.v2",
   "timestamp": "2013-12-30T19:15:23Z",
   "user": {
     "emailAddress": "davido@blinkbox.com",
