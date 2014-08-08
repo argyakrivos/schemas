@@ -1,0 +1,14 @@
+{
+  "$schema": "events.user.credited.v2",
+  "timestamp": "2013-12-30T19:15:23Z",
+  "user": {
+    "id": 123,
+    "username": "user@domain.com",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "allowMarketingCommunications": true
+  },
+  "amount" : 3.99,
+  "currency" : "GBP",
+  "reason" : "hudl2offer"
+}
