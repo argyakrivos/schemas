@@ -1,9 +1,9 @@
 {
   "$schema": "events.email.send.v2",
   "timestamp": "2013-12-30T19:15:23Z",
-  "user": {
+  "to": {
     "emailAddress": "davido@blinkbox.com",
-    "userId": "1234"
+    "id": "1234"
   },
   "emailTemplateName" : "purchase_complete",
   "attributes": {
