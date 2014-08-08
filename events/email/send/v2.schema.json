@@ -1,0 +1,32 @@
+{
+  "title": "The structure of a Email send email message",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "The type of event which has occurred",
+      "type": "string",
+      "pattern": "^events\.email\.send\.v2$"
+    },
+    "timestamp": {
+      "title": "The timestamp at which this event occurred.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "to": {
+      "title": "Details about the bbb user receiving the email",
+      "$ref": "../common/v2.schema.json#/definitions/user"
+    },
+    "emailTemplateName": {
+      "title": "The email template name to use.",
+      "type" : "string"
+    },
+    "attributes": { "$ref": "#/definitions/attributes" }
+  },
+  "required": ["$schema", "timestamp", "emailTemplateName","user"],
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
