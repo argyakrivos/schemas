@@ -1,0 +1,74 @@
+{
+  "title": "The details of the contributor",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "The schema for this document.",
+      "type": "string",
+      "pattern": "^ingestion.contributor.metadata.v2$"
+    },
+    "classification":  { "$ref": "../../common/v2.schema.json#/definitions/classification" },
+    "names": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "title": "The name of the contributor as it should appear in general text.",
+          "type": "string"
+        },
+        "sort": {
+          "title": "The string that should be used for sorting this contributor among others.",
+          "type": "string"
+        },
+        "keyNames": {
+          "title": "The part of the contributor's name most likely to start an ordered list. Surname in Western culture.",
+          "type": "string"
+        },
+        "namesBeforeKey": {
+          "title": "Parts of the contributor's name that preceed the key_name. This would be first name and/or initials in Western culture.",
+          "type": "string"
+        },
+        "namesAfterKey": {
+          "title": "Parts of the contributor's name that follow the key_name. This would be first name in Eastern culture.",
+          "type": "string"
+        },
+        "titlesBeforeNames": {
+          "title": "Titles which would preceed the contributor's name. eg. Dr., Sir, H.R.H.",
+          "type": "string"
+        },
+        "prefixToKey": {
+          "title": "A prefix to the key_name which would not normally be included in the key_name, but which is not part of the before_key_name. eg. 'van' in Ludwig van Beethoven.",
+          "type": "string"
+        },
+        "suffixToKey": {
+          "title": "A suffix to the key_name which would not normally be included in the key_name, but which is not part of the after_key_name. eg. 'Jr.' in Sammy Davis Jr.",
+          "type": "string"
+        },
+        "lettersAfterNames": {
+          "title": "Honours usually appended after a name. eg. MSci, Ph.D.",
+          "type": "string"
+        }
+      },
+      "required": ["display"],
+      "additionalProperties": false
+    },
+    "media": {
+      "title": "The media types that can be associated with this contributor.",
+      "type": "object",
+      "properties": { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
+    },
+    "biography": {
+      "title": "A biography associated with this contributor. HTML or plan text.",
+      "type": "string"
+    },
+    "role": {
+      "title": "A contributor when assocaited with a book may have a role.",
+      "type": "string"
+    },
+    "source": {
+      "title": "The providence of the data contained within this object.",
+      "$ref": "../../common/v2.schema.json#/definitions/source"
+    }
+  },
+  "required": ["classification"],
+  "additionalProperties": false
+}

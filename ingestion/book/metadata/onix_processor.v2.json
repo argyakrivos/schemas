@@ -1,0 +1,87 @@
+{
+  "$schema": "ingestion.book.metadata.v2",
+  "classification": [
+    {
+      "realm": "isbn",
+      "id": "9780111222333"
+    },
+    {
+      "realm": "source_username",
+      "id": "randomhouse_uk"
+    }
+  ],
+  "format": "digital",
+  "title": "Two Heads are Better Than One",
+  "related": [
+    {
+      "classification": [
+        {
+          "realm": "isbn",
+          "id": "9780111222333"
+        },
+        {
+          "realm": "format",
+          "id": "print"
+        }
+      ],
+      "relation": "equivalent"
+    }
+  ],
+  "contributors": [
+    {
+      "classification": [
+        {
+          "realm": "contributor_id",
+          "id": "17265885bf08fc5617c3d22951b4a36c8502f4c4"
+        }
+      ],
+      "names": {
+        "display": "Zaphod Beeblebrox",
+        "sort": "Beeblebrox, Zaphod"
+      },
+      "role": "Author",
+      "biography": "Zaphod is just some guy, you know?"
+    }
+  ],
+  "subjects": [
+    {
+      "type": "BISAC",
+      "code": "FIC050000"
+    }
+  ],
+  "regionalRights": {
+    "GB": true,
+    "IE": true,
+    "ROW": false
+  },
+  "descriptions": [],
+  "prices": [
+    {
+      "amount": 1.00,
+      "currency": "GBP",
+      "includesTax?": true,
+      "agency?": true,
+      "applicableRegions": {
+        "GB": true,
+        "ROW": false
+      },
+      "discountRate": 0.4,
+      "tax": [
+        {
+          "rate": "S",
+          "taxableAmount": 0.83,
+          "amount": 0.17,
+          "percent": 20
+        }
+      ]
+    }
+  ],
+  "source": {
+    "$remaining": {
+      "deliveredAt": "2014-06-23T12:03:14.23Z",
+      "uri": "azure://path.to/a/folder/and/a/file.xml",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk"
+    }
+  }
+}

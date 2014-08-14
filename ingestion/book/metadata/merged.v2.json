@@ -1,0 +1,99 @@
+{
+  "$schema": "ingestion.book.metadata.v2",
+  "classification": [
+    {
+      "realm": "isbn",
+      "id": "9780111222333"
+    },
+    {
+      "realm": "source_username",
+      "id": "randomhouse_uk"
+    }
+  ],
+  "title": "I'm a title that came from file A",
+  "subtitle": "I'm a subtitle that came from file B",
+  "media": {
+    "images": [
+      {
+        "classification": [
+          {
+            "realm": "type",
+            "id": "front_cover"
+          }
+        ],
+        "uris": [
+          {
+            "type": "resource_server",
+            "uri": "https://media.blinkboxbooks.com/path/to/file.png"
+          },
+          {
+            "type": "static",
+            "uri": "http://container.azure.com/path/to/file.jpg"
+          },
+          {
+            "type": "static",
+            "uri": "http://container.azure.com/path/to/file.jpg",
+            "params": "img:m=scale;img:w=300;v=0"
+          }
+        ],
+        "width": 1200,
+        "height": 2500,
+        "size": 25485,
+        "source": {
+          "deliveredAt": "2014-06-23T13:22:17.35Z",
+          "uri": "azure://path.to/a/folder/and/a/book-cover.jpg",
+          "role": "publisher_ftp",
+          "username": "randomhouse_uk"
+        }
+      }
+    ],
+    "epubs": [
+      {
+        "classification": [
+          {
+            "realm": "type",
+            "id": "origin"
+          }
+        ],
+        "uris": [
+          {
+            "type": "static",
+            "uri": "http://container.azure.com/path/to/file.epub"
+          }
+        ],
+        "wordcount": 37462,
+        "size": 25485,
+        "source": {
+          "deliveredAt": "2014-06-23T13:22:17.35Z",
+          "uri": "azure://path.to/a/folder/and/a/book.epub",
+          "role": "publisher_ftp",
+          "username": "randomhouse_uk",
+          "system": {
+            "name": "marvin/epub-verifier",
+            "version": "1.1.2"
+          }
+        }
+      }
+    ]
+  },
+  "source": {
+    "title": {
+      "deliveredAt": "2014-05-11T02:41:32.62Z",
+      "uri": "azure://path.to/a/folder/and/a/fileA.xml",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk"
+    },
+    "subtitle": {
+      "deliveredAt": "2014-06-23T12:03:14.23Z",
+      "uri": "azure://path.to/a/folder/and/a/fileB.xml",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk"
+    },
+    "$remaining": {
+      "deliveredAt": "2014-06-23T12:03:14.23Z",
+      "uri": "azure://path.to/a/folder/and/a/fileB.xml",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk"
+    }
+  }
+}

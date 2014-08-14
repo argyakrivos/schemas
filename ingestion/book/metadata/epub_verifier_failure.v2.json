@@ -1,0 +1,50 @@
+{
+  "$schema": "ingestion.book.metadata.v2",
+  "classification": [
+    {
+      "realm": "isbn",
+      "id": "9780111222333"
+    },
+    {
+      "realm": "source_username",
+      "id": "randomhouse_uk"
+    }
+  ],
+  "media": {
+    "epubs": [
+      {
+        "classification": [
+          {
+            "realm": "type",
+            "id": "origin"
+          },
+          {
+            "realm": "status",
+            "id": "failure"
+          }
+        ],
+        "uris": [],
+        "size": 25485,
+        "failure": {
+          "reason": "A short message explaining the failure",
+          "data": {
+            "backtrace": "blah blah\nblah",
+            "whatever": "things that might be useful."
+          }
+        }
+      }
+    ]
+  },
+  "source": {
+    "$remaining": {
+      "deliveredAt": "2014-06-23T13:22:17.35Z",
+      "uri": "azure://path.to/a/folder/and/a/book.epub",
+      "role": "publisher_ftp",
+      "username": "randomhouse_uk",
+      "system": {
+        "name": "marvin/epub-verifier",
+        "version": "1.1.2"
+      }
+    }
+  }
+}
