@@ -5,13 +5,13 @@
       "title": "Details about a bbb user",
       "type": "object",
       "properties": {
-        "emailAddress": {
-          "title": "The user email address",
-          "type": "string"
-        },
         "id": {
           "title": "The bbb user id.",
           "type": "integer"
+        },
+        "emailAddress": {
+          "title": "The user email address",
+          "type": "string"
         }
       },
       "additionalProperties": false,
