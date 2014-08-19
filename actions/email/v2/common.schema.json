@@ -9,13 +9,13 @@
           "title": "The bbb user id.",
           "type": "integer"
         },
-        "emailAddress": {
-          "title": "The user email address",
+        "username": {
+          "title": "The username the user registered with, which is the user's email address",
           "type": "string"
         }
       },
       "additionalProperties": false,
-      "required": ["emailAddress", "id"]
+      "required": ["username", "id"]
     }
   }
 }

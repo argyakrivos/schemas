@@ -2,8 +2,8 @@
   "$schema": "actions.email.send.v2",
   "timestamp": "2013-12-30T19:15:23Z",
   "to": {
-    "emailAddress": "davido@blinkbox.com",
-    "id": 1234
+    "id": 1234,
+    "username": "davido@blinkbox.com"
   },
   "templateName" : "purchase_complete",
   "attributes": {
