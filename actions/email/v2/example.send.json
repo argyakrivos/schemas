@@ -1,0 +1,16 @@
+{
+  "$schema": "actions.email.send.v2",
+  "timestamp": "2013-12-30T19:15:23Z",
+  "to": {
+    "emailAddress": "davido@blinkbox.com",
+    "id": "1234"
+  },
+  "templateName" : "purchase_complete",
+  "attributes": {
+    "name": "David Owen",
+    "amount": 5.49,
+    "other": {
+      "more": 234
+    }
+  }
+}
