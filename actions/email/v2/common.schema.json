@@ -1,0 +1,21 @@
+{
+  "title": "Common components for Email action schemas",
+  "definitions": {
+    "user": {
+      "title": "Details about a bbb user",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "The bbb user id.",
+          "type": "integer"
+        },
+        "username": {
+          "title": "The username the user registered with, which is the user's email address",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["username", "id"]
+    }
+  }
+}
