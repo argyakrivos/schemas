@@ -311,6 +311,10 @@
               "wordcount": {
                 "title": "The number of words in the associated epub.",
                 "type": "integer"
+              },
+              "startCfi": {
+                "title": "The location of where the book should open the first time a customer reads it. Expressed as a CFI.",
+                "type": "string"
               }
             },
             "required": ["wordcount"]
