@@ -1,0 +1,9 @@
+{
+  "publisher-assets\\.books\\.blinkbox\\.mapped/(?<path>.+)": {
+    "azure": "https://bbb.azure.com/publisher-assets/%{path}",
+    "s3": "https://bbb.s3.amazon.co.uk/pa/%{path}"
+  },
+  "(?<type>epubs|covers)\\.books\\.blinkbox\\.mapped/(?<path>.+)": {
+    "azure": "https://bbb.azure.com/%{type}/%{path}"
+  }
+}

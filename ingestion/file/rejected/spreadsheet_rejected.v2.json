@@ -1,4 +1,7 @@
 {
+  "rejectionReasons": [
+    // TODO
+  ],
   "source": {
     "deliveredAt": "2014-06-23T12:03:14.23Z",
     "uri": "http://publisher-assets.books.blinkbox.mapped/could/be/anywhere.jpg",
@@ -7,8 +10,8 @@
     "username": "randomhouse_uk",
     "contentType": "image/jpeg",
     "system": {
-      "name": "marvin/watcher",
+      "name": "marvin/cover_processor",
       "version": "1.0.0"
     }
-  }
+  } 
 }

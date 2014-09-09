@@ -60,6 +60,10 @@
           "type": "string",
           "format": "uri"
         },
+        "fileName": {
+          "title": "The original file name the file was uploaded/retrieved with.",
+          "type": "string"
+        },
         "contentType": {
           "title": "The detected content type of the source file. This will be pulled out into a header for routing to processing.",
           "type": "string"

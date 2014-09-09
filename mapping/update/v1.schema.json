@@ -1,0 +1,17 @@
+{
+  "title": "A document explaining how to map blinkbox Books virtual URLs to static real-world URLs.",
+  "type": "object",
+  "patternProperties": {
+    "^.+$": {
+      "title": "A specific mapping. The key is a regular expression which matches URLs which should fit this rule. Named capture groups should be used.",
+      "type": "object",
+      "patternProperties": {
+        "^[\\w\\-\\.]+$": {
+          "title": "How to generate the URL for retrieving the mapped file from the provider denoted by the key.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

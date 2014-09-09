@@ -1,5 +1,5 @@
 {
-  "title": "A document detailing a file that should be processed by a service capable of doing so.",
+  "title": "A document detailing the parts of a processed file which are considered to be invalid (ie. publisher error).",
   "type": "object",
   "properties": {
     "source": {

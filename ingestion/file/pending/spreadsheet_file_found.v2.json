@@ -1,10 +1,16 @@
 {
-  "fileName": "path/to/file.xls",
   "source": {
     "deliveredAt": "2014-06-23T12:03:14.23Z",
-    "uri": "http://publisher-assets.books.blinkbox.mapped/path/to/file.xls",
+    "uri": "http://publisher-assets.books.blinkbox.mapped/this/could/be/anywhere.xls",
     "role": "publisher_ftp",
     "username": "randomhouse_uk",
-    "contentType": "application/vnd.ms-excel"
+    "fileName": "path/to/file.xls",
+    "role": "publisher_ftp",
+    "username": "randomhouse_uk",
+    "contentType": "application/vnd.ms-excel",
+    "system": {
+      "name": "marvin/watcher",
+      "version": "1.0.0"
+    }
   }
 }
