@@ -9,5 +9,7 @@
     "source": {
       "$ref": "../../common/v2.schema.json#/definitions/source_description"
     }
-  }
+  },
+  "required": ["fileName", "source"],
+  "additionalParameters": false
 }
