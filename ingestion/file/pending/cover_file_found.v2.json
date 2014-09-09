@@ -1,0 +1,10 @@
+{
+  "fileName": "path/to/9780111222333.jpg",
+  "source": {
+    "deliveredAt": "2014-06-23T12:03:14.23Z",
+    "uri": "http://publisher-assets.books.blinkbox.mapped/path/to/9780111222333.jpg",
+    "role": "publisher_ftp",
+    "username": "randomhouse_uk",
+    "contentType": "image/jpeg"
+  }
+}

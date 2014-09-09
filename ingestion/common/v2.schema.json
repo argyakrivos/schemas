@@ -60,6 +60,10 @@
           "type": "string",
           "format": "uri"
         },
+        "contentType": {
+          "title": "The detected content type of the source file. This will be pulled out into a header for routing to processing.",
+          "type": "string"
+        },
         "role": {
           "title": "The role of the source that provided this data.",
           "enum": ["publisher_ftp", "content_manager"]
@@ -101,23 +105,25 @@
       "properties": {
         "images": {
           "type": "array",
-          "items": {
-            "title": "An image media element.",
-            "properties": {
-              "$ref": "#/definitions/media_item",
-              "width": {
-                "title": "The width of the image in pixels.",
-                "type": "integer"
-              },
-              "height": {
-                "title": "The height of the image in pixels.",
-                "type": "integer"
-              }
-            }
-          },
-          "additionalProperties": false
+          "items": { "$ref": "#/definitions/image_item" }
         }
       }
+    },
+    "image_item": {
+      "title": "An image media element.",
+      "type": "object",
+      "properties": {
+        "$ref": "#/definitions/media_item",
+        "width": {
+          "title": "The width of the image in pixels.",
+          "type": "integer"
+        },
+        "height": {
+          "title": "The height of the image in pixels.",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": { "$ref": "#/definitions/media_item" }
     },
     "media_item": {
       "title": "A mix-in for describing media items.",
@@ -128,6 +134,7 @@
         "uris": {
           "type": "array",
           "items": {
+            "type": "object",
             "properties": {
               "type": {
                 "enum": ["static", "resource_server"]
@@ -154,7 +161,8 @@
           "$ref": "#/definitions/source"
         }
       },
-      "required": ["classification", "uris", "size"]
+      "required": ["classification", "uris", "size"],
+      "additionalProperties":false
     },
     "regions": {
       "title": "An object which defines a series of regions which explicitly are, explictly are not and implicitly included in the object this field is included in.",

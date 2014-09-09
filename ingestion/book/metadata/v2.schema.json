@@ -299,30 +299,34 @@
       "properties": {
         "epubs": {
           "type": "array",
-          "items": {
-            "title": "The additional components of the media item which are specific to epubs.",
-            "properties": {
-              "$ref": "../../common/v2.schema.json#/definitions/media_item",
-              "keyfile": {
-                "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
-                "type": "string",
-                "format": "uri"
-              },
-              "wordcount": {
-                "title": "The number of words in the associated epub.",
-                "type": "integer"
-              },
-              "startCfi": {
-                "title": "The location of where the book should open the first time a customer reads it. Expressed as a CFI.",
-                "type": "string"
-              }
-            },
-            "required": ["wordcount"]
-            // Removed this because the $ref isn't being scanned for allowed properties.
-            //"additionalProperties": false
-          }
+          "items": { "$ref": "#/definitions/epub_item" }
         }
       }
+    },
+    "epub_item": {
+      "title": "The additional components of the media item which are specific to epubs.",
+      "type": "object",
+      "properties": {
+        "keyfile": {
+          "title": "The location of the (secured) keyfile for decrypting the ePub. This property should be present for books with 'drm:blinkboxbooks' in their classification.",
+          "type": "string",
+          "format": "uri"
+        },
+        "wordcount": {
+          "title": "The number of words in the associated epub.",
+          "type": "integer"
+        },
+        "imagecount": {
+          "title": "The number of images in the associated epub.",
+          "type": "integer"
+        },
+        "startCfi": {
+          "title": "The location of where the book should open the first time a customer reads it. Expressed as a CFI.",
+          "type": "string"
+        }
+      },
+      "required": ["wordcount"],
+      "additionalProperties": { "$ref": "../../common/v2.schema.json#/definitions/media_item" }
     },
     "availability": {
       "title": "An individual availability property",

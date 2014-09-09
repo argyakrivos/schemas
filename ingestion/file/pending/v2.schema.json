@@ -1,0 +1,13 @@
+{
+  "title": "A document detailing a file that should be processed by a service capable of doing so.",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "title": "the file path and name the publisher used to deliver this asset. Many ingestion processes use the filename to determine what book/contributor to attach the asset to, this facilitates that.",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "../../common/v2.schema.json#/definitions/source_description"
+    }
+  }
+}
