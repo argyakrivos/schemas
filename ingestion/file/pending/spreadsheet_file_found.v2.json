@@ -6,7 +6,6 @@
     "username": "randomhouse_uk",
     "fileName": "path/to/file.xls",
     "role": "publisher_ftp",
-    "username": "randomhouse_uk",
     "contentType": "application/vnd.ms-excel",
     "system": {
       "name": "marvin/watcher",
