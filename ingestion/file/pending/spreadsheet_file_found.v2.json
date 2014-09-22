@@ -2,7 +2,6 @@
   "source": {
     "deliveredAt": "2014-06-23T12:03:14.23Z",
     "uri": "http://publisher-assets.books.blinkbox.mapped/this/could/be/anywhere.xls",
-    "role": "publisher_ftp",
     "username": "randomhouse_uk",
     "fileName": "path/to/file.xls",
     "role": "publisher_ftp",
