@@ -312,11 +312,11 @@
           "type": "string",
           "format": "uri"
         },
-        "wordcount": {
+        "wordCount": {
           "title": "The number of words in the associated epub.",
           "type": "integer"
         },
-        "imagecount": {
+        "imageCount": {
           "title": "The number of images in the associated epub.",
           "type": "integer"
         },
@@ -325,7 +325,7 @@
           "type": "string"
         }
       },
-      "required": ["wordcount"],
+      "required": ["wordCount"],
       "additionalProperties": { "$ref": "../../common/v2.schema.json#/definitions/media_item" }
     },
     "availability": {
