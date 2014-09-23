@@ -1,0 +1,11 @@
+{
+  "title": "A document detailing the parts of a processed file which are considered to be invalid (ie. publisher error).",
+  "type": "object",
+  "properties": {
+    "source": {
+      "$ref": "../../common/v2.schema.json#/definitions/source_description"
+    }
+  },
+  "required": ["source"],
+  "additionalParameters": false
+}

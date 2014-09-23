@@ -40,6 +40,7 @@ end
 
 def validate_json(schema_file, json_file)
   Dir.chdir(File.dirname(json_file)) do
+    return ["No schema file found at #{File.basename(schema_file)}"] unless File.exist?(File.basename(schema_file))
     begin
       JSON::Validator.fully_validate(File.basename(schema_file), File.basename(json_file))
     rescue
