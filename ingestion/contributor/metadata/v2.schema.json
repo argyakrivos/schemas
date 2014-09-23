@@ -8,6 +8,22 @@
       "pattern": "^ingestion.contributor.metadata.v2$"
     },
     "classification":  { "$ref": "../../common/v2.schema.json#/definitions/classification" },
+    "ids": {
+      "title": "A listing of ids associated with this contributor.",
+      "type": "object",
+      "properties": {
+        "bbb": {
+          "title": "The blinkbox Books id of this contributor (also known as the 'contributor_id')",
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        ".+": {
+          "title": "An id for this contributor, the realm is the key, the id is the value.",
+          "type": "string"
+        }
+      }
+    },
     "names": {
       "type": "object",
       "properties": {
@@ -69,6 +85,7 @@
       "$ref": "../../common/v2.schema.json#/definitions/source"
     }
   },
-  "required": ["classification"],
-  "additionalProperties": false
+  // NB. Classification must be present if the document is a ingestion.contributor.metadata document. This will be 
+  // easier to specify with draft 5 of the JSON schema standard (using merge) but for now it's just not a requirement.
+  "additionalProperties": { "$ref": "../../common/v2.schema.json#/definitions/classification" }
 }

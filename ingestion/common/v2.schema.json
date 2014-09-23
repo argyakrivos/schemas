@@ -166,7 +166,7 @@
         }
       },
       "required": ["classification", "uris", "size"],
-      "additionalProperties":false
+      "additionalProperties": false
     },
     "regions": {
       "title": "An object which defines a series of regions which explicitly are, explictly are not and implicitly included in the object this field is included in.",
