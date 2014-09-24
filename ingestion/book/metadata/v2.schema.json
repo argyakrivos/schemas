@@ -191,7 +191,7 @@
       "title": "Categorisation of the book; keywords, genres etc.",
       "type": "array",
       "items": {
-        "title": "A collection of BISAC, BIC and keywordscategorising the content of the book.",
+        "title": "A collection of BISAC, BIC and keywords categorising the content of the book.",
         "type": "object",
         "properties": {
           "type": {
