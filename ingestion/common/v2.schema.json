@@ -19,11 +19,12 @@
             "title": "The name of the realm in which this unique identifier exists",
             "enum": [
               "source_username", // Used to differentiate between the same book from two publishers
-              "isbn",               // Used to classify books
-              "contributor_id",     // Used to classify contributors
-              "type",               // Used to ensure different types of the same asset don't overwrite (eg. full & sample epubs)
-              "source_key",         // A key used to allow a reprocessing of the same file to replace the old version
-              "format"              // Used in relatedProducts to define what the format of the related book is.
+              "isbn",            // Used to classify books
+              "contributor_id",  // Used to classify contributors
+              "type",            // Used to ensure different types of the same asset don't overwrite (eg. full & sample epubs)
+              "source_key",      // A key used to allow a reprocessing of the same file to replace the old version
+              "format",          // Used in relatedProducts to define what the format of the related book is.
+              "onix:33"          // Description codes: Onix code list 33
             ]
           },
           "id": {

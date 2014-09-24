@@ -98,7 +98,7 @@
       "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/iso639-2b"
+        "$ref": "../../common/v2.schema.json#/definitions/iso639-2b"
       }
     },
     "regionalRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
@@ -191,56 +191,20 @@
       "title": "Categorisation of the book; keywords, genres etc.",
       "type": "array",
       "items": {
-        "oneOf": [
-          {
-            "title": "BISAC codes",
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": ["BISAC"]
-              },
-              "code": {
-                "title": "The BISAC code",
-                // I could list an enum of valid BISAC codes, but that seems excessive
-                "type": "string"
-              }
-            },
-            "required": ["type", "code"],
-            "additionalProperties": false
+        "title": "A collection of BISAC, BIC and keywords categorising the content of the book.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "The realm of the code (eg. BISAC, BIC or keyword)",
+            "type": "string"
           },
-          {
-            "title": "BIC codes must be one of the accepted values",
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": ["BIC"]
-              },
-              "code": {
-                "title": "The BIC code",
-                // I could list an enum of valid BIC codes, but that seems excessive
-                "type": "string"
-              }
-            },
-            "required": ["type", "code"],
-            "additionalProperties": false
-          },
-          {
-            "title": "Anything that isn't BIC or BISAC codes we just take as informative",
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "pattern": "^(?!BI(?:SA)?C).*$"
-              },
-              "code": {
-                "title": "The text used for this subject code",
-                "type": "string"
-              }
-            },
-            "required": ["type", "code"],
-            "additionalProperties": false
+          "code": {
+            "title": "The text or code for this subject.",
+            "type": "string"
           }
-        ]
+        },
+        "required": ["type", "code"],
+        "additionalProperties": false
       }
     },
     "series": {
