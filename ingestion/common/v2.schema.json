@@ -20,11 +20,10 @@
             "enum": [
               "source_username", // Used to differentiate between the same book from two publishers
               "isbn",            // Used to classify books
-              "contributor_id",  // Used to classify contributors
+              "bbb_id",          // Used to classify contributors
               "type",            // Used to ensure different types of the same asset don't overwrite (eg. full & sample epubs)
               "source_key",      // A key used to allow a reprocessing of the same file to replace the old version
-              "format",          // Used in relatedProducts to define what the format of the related book is.
-              "onix:33"          // Description codes: Onix code list 33
+              "format"           // Used in relatedProducts to define what the format of the related book is.
             ]
           },
           "id": {
@@ -38,15 +37,7 @@
     },
     "source": {
       "title": "Contains information about the provenance of the data in this document. This will be an object with each value detailing the provenance of data for its corresponding key.",
-      "type": "object",
-      "properties": {
-        "$remaining": {
-          "title": "If a key of the master document isn't specified here, then this is the fallback source data.",
-          "$ref": "#/definitions/source_description"
-        }
-      },
-      "required": ["$remaining"],
-      "additionalProperties": { "$ref": "#/definitions/source_description" }
+      "$ref": "#/definitions/source_description"
     },
     "source_description": {
       "type": "object",
