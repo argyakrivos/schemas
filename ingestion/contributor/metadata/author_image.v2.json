@@ -2,7 +2,7 @@
   "$schema": "ingestion.contributor.metadata.v2",
   "classification": [
     {
-      "realm": "contributor_id",
+      "realm": "bbb_id",
       "id": "17265885bf08fc5617c3d22951b4a36c8502f4c4"
     }
   ],
@@ -37,10 +37,8 @@
     ]
   },
   "source": {
-    "$remaining": {
-      "deliveredAt": "2014-06-23T13:22:17.35Z",
-      "role": "content_manager",
-      "username": "roberts@blinkbox.com"
-    }
+    "deliveredAt": "2014-06-23T13:22:17.35Z",
+    "role": "content_manager",
+    "username": "roberts@blinkbox.com"
   }
 }
