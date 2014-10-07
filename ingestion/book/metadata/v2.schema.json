@@ -187,6 +187,13 @@
         "additionalProperties": false
       }
     },
+    "statistics": {
+      "title": "An as-yet undefined list of statistics",
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
     "subjects": {
       "title": "Categorisation of the book; keywords, genres etc.",
       "type": "array",
