@@ -1,0 +1,36 @@
+{
+    "title": "The structure of a gift redemption message",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "title": "The type of event which has occured",
+            "type": "string",
+            "pattern": "^events\.gift\.redeemed\.v2$"
+        },
+        "campaign": {
+            "title": "The details of the campaign associated with the redemption event",
+            "$ref": "common.schema.json#/definitions/campaign"
+        },
+        "giftDetails": {
+            "title": "Details of the redeemed gift",
+            "$ref": "common.schema.json#/definitions/giftDetails"
+        },
+        "redeemedAt": {
+            "title": "The ISO-8601 date-time when the event occured",
+            "type": "string",
+            "format": "date-time"
+        },
+        "userId": {
+            "title": "The blinkbox books userId of the user who triggered this redemption event",
+            "type": "integer"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "$schema",
+        "campaign",
+        "giftDetails",
+        "redeemedAt",
+        "userId"
+    ]
+}

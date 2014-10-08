@@ -1,0 +1,27 @@
+{
+  "title": "Common components for other schemas",
+  "definitions": {
+    "campaign": {
+      "title": "Details about a gifting campaign associated to this event",
+      "type": "object",
+      "properties": {
+        "id" : {
+          "title": "The integer ID of the gifting campaign", 
+          "type": "Integer"
+        }, 
+        "name": {
+          "title": "The name of the gifting campaign",
+          "type": "String"
+        }
+      }
+    }, 
+    "giftDetails": {
+      "title": "Map(String, String) of the properties of the gift redemption event",
+      "patternProperties": {
+        "^": {
+          "type": "String"
+        }
+      }
+    }
+  }
+}

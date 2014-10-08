@@ -1,0 +1,14 @@
+{
+  "$schema": "events.gift.redeemed.v2",
+  "campaign": {
+    "id": 42, 
+    "name": "free_steak_with_cookbook"
+  },
+  "giftDetails": {
+    "size": "xxl",
+    "weight": "32oz",
+    "arbitrary": "string data"
+  },
+  "redeemedAt": "2014-03-14T19:15:23Z",
+  "userId": 3246
+}
