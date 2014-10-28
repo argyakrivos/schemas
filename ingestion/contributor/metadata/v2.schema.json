@@ -51,6 +51,10 @@
           "title": "Titles which would preceed the contributor's name. eg. Dr., Sir, H.R.H.",
           "type": "string"
         },
+        "titlesAfterNames": {
+          "title": "Titles which would suffix the contributor's name. eg. J.P.",
+          "type": "string"
+        },
         "prefixToKey": {
           "title": "A prefix to the key_name which would not normally be included in the key_name, but which is not part of the before_key_name. eg. 'van' in Ludwig van Beethoven.",
           "type": "string"
