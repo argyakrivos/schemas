@@ -22,10 +22,6 @@
       "title": "The subtitle of the book",
       "type": "string"
     },
-    "contributorStatement": {
-      "title": "A free text field describing all contributors.",
-      "type": "string"
-    },
     "contributors": {
       "title": "The array listing, in order, contributors this work is attributed to. If there are no contributors for a book, this should be an empty array, not missing.",
       "type": "array",
@@ -84,6 +80,11 @@
           "content": {
             "title": "The content of the description. Will be interpreted as HTML.",
             "type": "string"
+          },
+          "type": {
+            "title": "What kind of description this text represents. Uses ONIX codelist 33 codes.",
+            "type": "string",
+            "format": "^\\d{2}$"
           },
           "source": {
             "title": "If the source of this element is different to that of the parent document (eg. with merged documents) then the details should be contained here.",
@@ -307,9 +308,10 @@
           "title": "Whether or not this book is available for sale by consequence of this availability metric",
           "type": "boolean"
         },
-        "description": {
-          "title": "A text description of why the 'available' setting is what it is. Used for informing the content manager.",
-          "type": "string"
+        "code": {
+          "title": "The ONIX code for this availability type",
+          "type": "string",
+          "format": "^.{2}$"
         }
       },
       "required": ["available"],
