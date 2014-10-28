@@ -95,8 +95,15 @@
         "additionalProperties": false
       }
     },
-    "language": {
+    "languages": {
       "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
+      "type": "array",
+      "items": {
+        "$ref": "../../common/v2.schema.json#/definitions/iso639-2b"
+      }
+    },
+    "originalLanguages": {
+      "title": "The languages (ISO-639/2B) the book was originally written in before being translated for the work being described. Order is significant, with the 0 indexed language being the most promenant.",
       "type": "array",
       "items": {
         "$ref": "../../common/v2.schema.json#/definitions/iso639-2b"
