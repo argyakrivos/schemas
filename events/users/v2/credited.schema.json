@@ -1,0 +1,36 @@
+{
+  "title": "The structure of a user credit message.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "The type of event which has occurred",
+      "type": "string",
+      "pattern": "^events\.user\.credited\.v2"
+    },
+    "timestamp": {
+      "title": "The timestamp at which this event occurred.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "title": "The most recent information we have about the user affected by this event.",
+      "$ref": "common.schema.json#/definitions/user"
+    },
+    "amount": {
+      "title": "The amount of money credited to the user's account",
+      "type": "number"
+    },
+    "currency": {
+      "title": "The currency in which the credit amount is given.",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 5
+    },
+    "reason": {
+      "title": "A pre-defined code that identifies the cause of the credit action.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["$schema", "timestamp", "user", "amount", "currency", "user"]
+}

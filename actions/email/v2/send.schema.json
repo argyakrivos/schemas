@@ -1,0 +1,32 @@
+{
+  "title": "The structure of a Email send email action message",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "title": "The type of action which was triggered",
+      "type": "string",
+      "pattern": "^actions\.email\.send\.v2$"
+    },
+    "timestamp": {
+      "title": "The timestamp at which this action was triggered.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "to": {
+      "title": "Details about the bbb user to receive the email",
+      "$ref": "common.schema.json#/definitions/user"
+    },
+    "templateName": {
+      "title": "The email template name to use.",
+      "type" : "string"
+    },
+    "attributes": { "$ref": "#/definitions/attributes" }
+  },
+  "required": ["$schema", "timestamp", "templateName","to"],
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
