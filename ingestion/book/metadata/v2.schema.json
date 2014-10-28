@@ -70,30 +70,14 @@
       "additionalProperties": false
     },
     "descriptions": {
-      "title": "The list of descriptions attached to a book. The first in the array is considered the most preferred.",
+      "title": "The list of descriptions attached to a book. The preferred description is determined by the type codes used: 01, 03, 18, 02, <anything else>",
       "type": "array",
-      "items": {
-        "title": "A description of the associated book.",
-        "type": "object",
-        "properties": {
-          "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
-          "content": {
-            "title": "The content of the description. Will be interpreted as HTML.",
-            "type": "string"
-          },
-          "type": {
-            "title": "What kind of description this text represents. Uses ONIX codelist 33 codes.",
-            "type": "string",
-            "format": "^\\d{2}$"
-          },
-          "source": {
-            "title": "If the source of this element is different to that of the parent document (eg. with merged documents) then the details should be contained here.",
-            "$ref": "../../common/v2.schema.json#/definitions/source"
-          }
-        },
-        "required": ["classification", "content"],
-        "additionalProperties": false
-      }
+      "items": { "$ref": "#/definitions/othertext" }
+    },
+    "reviews": {
+      "title": "The list of reviews attached to a book.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/othertext" }
     },
     "languages": {
       "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
@@ -322,6 +306,24 @@
         }
       },
       "required": ["available"],
+      "additionalProperties": false
+    },
+    "othertext": {
+      "title": "A description of the associated book.",
+      "type": "object",
+      "properties": {
+        "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
+        "content": {
+          "title": "The content of the description. Will be interpreted as HTML.",
+          "type": "string"
+        },
+        "type": {
+          "title": "What kind of description this text represents. Uses ONIX codelist 33 codes.",
+          "type": "string",
+          "format": "^\\d{2}$"
+        }
+      },
+      "required": ["classification", "content", "type"],
       "additionalProperties": false
     }
   }
