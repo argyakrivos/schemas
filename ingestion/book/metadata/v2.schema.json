@@ -22,10 +22,6 @@
       "title": "The subtitle of the book",
       "type": "string"
     },
-    "contributorStatement": {
-      "title": "A free text field describing all contributors.",
-      "type": "string"
-    },
     "contributors": {
       "title": "The array listing, in order, contributors this work is attributed to. If there are no contributors for a book, this should be an empty array, not missing.",
       "type": "array",
@@ -74,28 +70,22 @@
       "additionalProperties": false
     },
     "descriptions": {
-      "title": "The list of descriptions attached to a book. The first in the array is considered the most preferred.",
+      "title": "The list of descriptions attached to a book. The preferred description is determined by the type codes used: 01, 03, 18, 02, <anything else>",
       "type": "array",
-      "items": {
-        "title": "A description of the associated book.",
-        "type": "object",
-        "properties": {
-          "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
-          "content": {
-            "title": "The content of the description. Will be interpreted as HTML.",
-            "type": "string"
-          },
-          "source": {
-            "title": "If the source of this element is different to that of the parent document (eg. with merged documents) then the details should be contained here.",
-            "$ref": "../../common/v2.schema.json#/definitions/source"
-          }
-        },
-        "required": ["classification", "content"],
-        "additionalProperties": false
-      }
+      "items": { "$ref": "#/definitions/othertext" }
     },
-    "language": {
+    "reviews": {
+      "title": "The list of reviews attached to a book.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/othertext" }
+    },
+    "languages": {
       "title": "The languages (ISO-639/2B) the book is written in. Order is significant, with the 0 indexed language being the most promenant.",
+      "type": "array",
+      "items": { "$ref": "../../common/v2.schema.json#/definitions/iso639-2b" }
+    },
+    "originalLanguages": {
+      "title": "The languages (ISO-639/2B) the book was originally written in before being translated for the work being described. Order is significant, with the 0 indexed language being the most promenant.",
       "type": "array",
       "items": {
         "$ref": "../../common/v2.schema.json#/definitions/iso639-2b"
@@ -208,6 +198,10 @@
           "code": {
             "title": "The text or code for this subject.",
             "type": "string"
+          },
+          "main": {
+            "title": "Set to true for subject codes which are considered more important in classifying the work.",
+            "type": "boolean"
           }
         },
         "required": ["type", "code"],
@@ -307,12 +301,35 @@
           "title": "Whether or not this book is available for sale by consequence of this availability metric",
           "type": "boolean"
         },
-        "description": {
-          "title": "A text description of why the 'available' setting is what it is. Used for informing the content manager.",
-          "type": "string"
+        "code": {
+          "title": "The ONIX code for this availability type",
+          "type": "string",
+          "format": "^.{2}$"
         }
       },
       "required": ["available"],
+      "additionalProperties": false
+    },
+    "othertext": {
+      "title": "Text associated with the book, used for reviews and descriptions.",
+      "type": "object",
+      "properties": {
+        "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
+        "content": {
+          "title": "The content of the text. Will be interpreted as HTML.",
+          "type": "string"
+        },
+        "type": {
+          "title": "What kind of description this text represents. Uses ONIX codelist 33 codes.",
+          "type": "string",
+          "format": "^\\d{2}$"
+        },
+        "author": {
+          "title": "The author of this body of text, if applicable",
+          "type": "string"
+        }
+      },
+      "required": ["classification", "content", "type"],
       "additionalProperties": false
     }
   }
