@@ -198,6 +198,10 @@
           "code": {
             "title": "The text or code for this subject.",
             "type": "string"
+          },
+          "main": {
+            "title": "Set to true for subject codes which are considered more important in classifying the work.",
+            "type": "boolean"
           }
         },
         "required": ["type", "code"],
