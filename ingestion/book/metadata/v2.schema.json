@@ -91,7 +91,8 @@
         "$ref": "../../common/v2.schema.json#/definitions/iso639-2b"
       }
     },
-    "regionalRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
+    "supplyRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
+    "salesRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
     "publisher": {
       "title": "The name of the publisher as it should appear on the site.",
       "type": "string"
@@ -150,10 +151,10 @@
                   "enum": ["H","R","S","P","Z"]
                 },
                 "percent": {
-                  "type": "The percentage of the taxable_amount which should be considered the tax.",
+                  "type": "The percentage of the taxable_amount which should be considered the tax as a fraction of 1.",
                   "type": "number",
                   "minimum": 0,
-                  "maximum": 100
+                  "maximum": 1
                 },
                 "amount": {
                   "type": "The amount of money which the above percentage translates to (in the same currency).",
