@@ -164,8 +164,20 @@
       }
     },
     "format": {
-      "title": "The format of a book, eg. digital or print",
-      "enum": ["digital", "print"]
+      "type": "object",
+      "properties": {
+        "marvinIncompatible": {
+          "title": "Whether this work is a digital work compatible with Marvin 2. Negative phrasing is because the absence of this key implies that it is compatible.",
+          "type": "boolean",
+          "default": false
+        },
+        "epubType": {
+          "title": "How the ePub is classified in the ONIX, using codelist 23",
+          "type": "string",
+          "format": "^\\d{3}$"
+        }
+      },
+      "required": ["marvinIncompatible"]
     }
   }
 }
