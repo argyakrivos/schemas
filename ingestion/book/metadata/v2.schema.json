@@ -333,6 +333,10 @@
           "title": "The ONIX code for this availability type",
           "type": "string",
           "format": "^.{2}$"
+        },
+        "extra": {
+          "title": "Extra information around this availability.",
+          "type": "string"
         }
       },
       "required": ["available"],
