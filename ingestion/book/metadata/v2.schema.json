@@ -169,7 +169,7 @@
             }
           }
         },
-        "required": ["amount", "currency", "includesTax?", "agency?"],
+        "required": ["amount", "currency", "includesTax", "isAgency"],
         "additionalProperties": false
       }
     },
