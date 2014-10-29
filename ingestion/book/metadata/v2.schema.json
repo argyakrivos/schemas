@@ -59,12 +59,12 @@
         "publish": {
           "title": "The date and time at which the publisher allows this book to go on sale.",
           "type": "string",
-          "format": "date-time"
+          "format": ["date-time", "date"]
         },
         "announce": {
           "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released.",
           "type": "string",
-          "format": "date-time"
+          "format": ["date-time", "date"]
         }
       },
       "additionalProperties": false
