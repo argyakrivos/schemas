@@ -92,10 +92,6 @@
       }
     },
     "regionalRights": { "$ref": "../../common/v2.schema.json#/definitions/regions" },
-    "pages": {
-      "title": "Number of pages in an equivalent physical book",
-      "type": "integer"
-    },
     "publisher": {
       "title": "The name of the publisher as it should appear on the site.",
       "type": "string"
@@ -119,11 +115,11 @@
             "title": "The ISO-4217 currency code associated with this price.",
             "$ref": "../../common/v2.schema.json#/definitions/iso-4217"
           },
-          "includesTax?": {
+          "includesTax": {
             "title": "Whether this price includes tax or not.",
             "type": "boolean"
           },
-          "agency?": {
+          "isAgency": {
             "title": "Whether this price is an agency model price or not.",
             "type": "boolean"
           },
@@ -180,6 +176,37 @@
     "statistics": {
       "title": "An as-yet undefined list of statistics",
       "type": "object",
+      "properties": {
+        "pages": {
+          "title": "Number of pages in an equivalent physical book",
+          "type": "integer",
+          "mimumum": 0
+        },
+        "sentences": {
+          "title": "Number of sentences in the epub. Assumes British English conventions.",
+          "type": "integer",
+          "mimumum": 0
+        },
+        "words":{
+          "title": "Number of words in the epub. It is possible that this number is different to the one specified within the ePub media section; this statistic should be used for analytics, the one in ePub should be used for calculating percentage through a book.",
+          "type": "integer",
+          "mimumum": 0
+        },
+        "syllables": {
+          "title": "An estimate of the number of syllables in the words of the epub. Assumes British English conventions.",
+          "type": "integer",
+          "mimumum": 0
+        },
+        "polysyllables": {
+          "title": "An estimate of the number of words with 3 or more syllables in the words of the epub. Assumes British English conventions.",
+          "type": "integer",
+          "mimumum": 0
+        },
+        "smog_grade": {
+          "title": "An estimate of the SMOG grade of the entire body of text.",
+          "type": "number"
+        }
+      },
       "additionalProperties": {
         "type": "number"
       }
