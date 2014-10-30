@@ -175,6 +175,11 @@
           "title": "How the ePub is classified in the ONIX, using codelist 23",
           "type": "string",
           "format": "^\\d{3}$"
+        },
+        "productForm": {
+          "title": "The form of the book this data describes, using codelist 7",
+          "type": "string",
+          "format": "^[A-Z]{2}$"
         }
       },
       "required": ["marvinIncompatible"]

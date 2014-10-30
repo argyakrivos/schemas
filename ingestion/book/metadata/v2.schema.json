@@ -154,7 +154,8 @@
                   "type": "The percentage of the taxable_amount which should be considered the tax as a fraction of 1.",
                   "type": "number",
                   "minimum": 0,
-                  "maximum": 1
+                  "maximum": 1,
+                  "format": "percentage"
                 },
                 "amount": {
                   "type": "The amount of money which the above percentage translates to (in the same currency).",
