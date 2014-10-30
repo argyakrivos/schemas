@@ -133,7 +133,7 @@
           "validFrom": {
             "title": "The date time from which this price is valid.",
             "type": "string",
-            "format": "date-time"
+            "format": ["date-time", "date"]
           },
           "applicableRegions": {
             "title": "The regions where this price can be used",
@@ -266,8 +266,14 @@
             "$ref": "../../common/v2.schema.json#/definitions/classification"
           },
           "relation": {
-            "title": "A word which completes the sentence: 'The related book defined by `/related[n]/classification` is ________ to the one described in the parent document by `/classification`.'",
-            "enum": ["equivalent"]
+            "title": "How the book described in the parent document (Product) relates to the one described in this object (RelatedProdct). Uses ONIX codelist 51.",
+            "type": "string",
+            "format": "^\\d{2}$"
+          },
+          "isbn": {
+            "title": "The ISBN of the related product, if applicable.",
+            "type": "string",
+            "format": "^\\d{13}$"
           }
         }
       }
