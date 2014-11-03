@@ -135,6 +135,11 @@
             "type": "string",
             "format": ["date-time", "date"]
           },
+          "validUntil": {
+            "title": "The date time until which this price is valid.",
+            "type": "string",
+            "format": ["date-time", "date"]
+          },
           "applicableRegions": {
             "title": "The regions where this price can be used",
             "$ref": "../../common/v2.schema.json#/definitions/regions"
