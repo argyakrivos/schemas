@@ -84,6 +84,11 @@
       "title": "A contributor when assocaited with a book may have a role.",
       "type": "string"
     },
+    "seq": {
+      "title": "The position at which this contributor should be named amongst other contirbutors. In merged documents there may be more than one of the same sequence, in this case the order of those contributors is unspecified.",
+      "type": "integer",
+      "minimum": 1
+    },
     "source": {
       "title": "The providence of the data contained within this object.",
       "$ref": "../../common/v2.schema.json#/definitions/source"
