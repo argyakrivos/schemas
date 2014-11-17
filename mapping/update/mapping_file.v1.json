@@ -1,10 +1,10 @@
-{
-  "publisher-assets\\.books\\.blinkbox\\.mapped/(?<path>.+)": {
-    "azure": "https://bbb.azure.com/publisher-assets/%{path}",
-    "s3": "https://bbb.s3.amazon.co.uk/pa/%{path}",
-    "local": "file:///mnt/distribution/%{path}"
-  },
-  "(?<type>epubs|covers)\\.books\\.blinkbox\\.mapped/(?<path>.+)": {
-    "azure": "https://bbb.azure.com/%{type}/%{path}"
+[
+  {
+    "label": "publisher-assets",
+    "extractor": "^bbbmap:publisher-assets:(?<path>.+)$",
+    "providers": {
+      "azure": "https://bbb.azure.com/publisher-assets/%{path}",
+      "gluster": "file:///mnt/publishers/%{path}"
+    }
   }
-}
+]

@@ -1,17 +1,32 @@
 {
-  "title": "A document explaining how to map blinkbox Books virtual URLs to static real-world URLs.",
-  "type": "object",
-  "patternProperties": {
-    "^.+$": {
-      "title": "A specific mapping. The key is a regular expression which matches URLs which should fit this rule. Named capture groups should be used.",
-      "type": "object",
-      "patternProperties": {
-        "^[\\w\\-\\.]+$": {
-          "title": "How to generate the URL for retrieving the mapped file from the provider denoted by the key.",
+  "title": "List of templates that describe how to create a url from a token. Object keys are regular expressions which should match some tokens. Named groups should be used so that components of the token can be inserted into the URLs contained.",
+  "type": "array",
+  "items": {
+    "title": "An object describing a label and how to map tokens of that label's type to URLs.",
+    "type": "object",
+    "required": [
+      "label",
+      "extractor",
+      "providers"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "title": "The label described by this definition",
+        "type": "string"
+      },
+      "extractor": {
+        "title": "A regular expression using named capture groups (PCRE 7.2 format: `(?<name>.+)`) which will match tokens made for this label",
+        "type": "string"
+      },
+      "providers": {
+        "title": "List of providers which are used for this label. Object key is the provider name.",
+        "type": "object",
+        "additionalProperties": {
+          "title": "A URL with templated sections in sprintf form eg. `https://storage.example.com/bucket/%{variableName}` where `variableName` is a named group catured in the regular expression key above.",
           "type": "string"
         }
       }
     }
-  },
-  "additionalProperties": false
+  }
 }
