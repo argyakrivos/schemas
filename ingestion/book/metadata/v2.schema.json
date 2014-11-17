@@ -8,7 +8,6 @@
       "pattern": "^ingestion.book.metadata.v2$"
     },
     "classification": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
-    // These are pieces of information we'd expect from an ONIX file
     "isbn": {
       "title": "The ISBN of the book. This field may not be useful if classifiers more general than ISBN are used.",
       "type": "string"
@@ -56,13 +55,13 @@
       "title": "Information about dates relevant to the publishing of this book.",
       "type": "object",
       "properties": {
-        "publish": {
-          "title": "The date and time at which the publisher allows this book to go on sale.",
+        "announce": {
+          "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released. If this date is absent it should be assumed that the anncouncement date has passed.",
           "type": "string",
           "format": ["date-time", "date"]
         },
-        "announce": {
-          "title": "The date and time at which the publisher allows this book to be announced - ie. have metadata released.",
+        "publish": {
+          "title": "The date and time at which the publisher allows this book to go on sale. If this date is absent then it should be assumed it is the same as the anncouncement date.",
           "type": "string",
           "format": ["date-time", "date"]
         }
@@ -212,6 +211,25 @@
         "smog_grade": {
           "title": "An estimate of the SMOG grade of the entire body of text.",
           "type": "number"
+        },
+        "adultThemes": {
+          "title": "An object describing how adult this book appears.",
+          "type": "object",
+          "properties": {
+            "rating": {
+              "title": "The averaged rating for this book (a percentage).",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reviewers": {
+              "title": "The number of people who have reviewed this book",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": ["rating", "reviewers"]
         }
       },
       "additionalProperties": {
@@ -283,12 +301,41 @@
         }
       }
     },
-    // We'd expect media elements from an EPUB or COVER processor
     "media": {
       "anyOf": [
         { "$ref": "#/definitions/epub_media" },
         { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
       ]
+    },
+    "distributionStatus": {
+      "title": "Information about whether this book should be used by the shop.",
+      "type": "object",
+      "properties": {
+        "usable": {
+          "title": "Whether this book should be sellable/displayable/usable in planning (according to shop-side logic).",
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "Title",
+              "Availability",
+              "RegionalRights",
+              "Publisher",
+              "Cover",
+              "Epub",
+              "Language",
+              "Description",
+              "Price",
+              "Racy"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": ["usable", "reasons"]
     },
     "source": {
       "title": "The providence of the data contained within this object.",
