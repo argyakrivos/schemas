@@ -14,14 +14,6 @@
           "type": "String"
         }
       }
-    }, 
-    "giftDetails": {
-      "title": "Map(String, String) of the properties of the gift redemption event",
-      "patternProperties": {
-        "^": {
-          "type": "String"
-        }
-      }
-    }
+    } 
   }
 }

@@ -13,7 +13,7 @@
         },
         "giftDetails": {
             "title": "Details of the redeemed gift",
-            "$ref": "common.schema.json#/definitions/giftDetails"
+            "$ref": "#/definitions/giftDetails"
         },
         "redeemedAt": {
             "title": "The ISO-8601 date-time when the event occured",
@@ -32,5 +32,11 @@
         "giftDetails",
         "redeemedAt",
         "userId"
-    ]
+    ],
+    "definitions": {
+        "giftDetails": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
 }

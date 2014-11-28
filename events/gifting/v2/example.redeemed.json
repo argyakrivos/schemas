@@ -5,9 +5,12 @@
     "name": "free_steak_with_cookbook"
   },
   "giftDetails": {
-    "size": "xxl",
-    "weight": "32oz",
-    "arbitrary": "string data"
+    "voucher_code": "1234567890123456",
+    "redemption_action": "add_user_credit",
+    "credit_before_amount": "1.23",
+    "credit_before_currency": "GBP",
+    "credit_after_amount": "4.56",
+    "credit_after_currency": "GBP"
   },
   "redeemedAt": "2014-03-14T19:15:23Z",
   "userId": 3246
