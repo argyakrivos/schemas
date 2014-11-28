@@ -319,16 +319,18 @@
           "type": "array",
           "uniqueItems": true,
           "items": {
+            "type": "string",
             "enum": [
-              "Title",
-              "Availability",
-              "RegionalRights",
-              "Publisher",
-              "Cover",
-              "Epub",
-              "Language",
-              "Description",
-              "Price",
+              "NoTitle",
+              "Unavailable",
+              "Unsuppliable",
+              "Unsellable",
+              "NoPublisher",
+              "NoCover",
+              "NoEpub",
+              "NotEnglish",
+              "NoDescription",
+              "NoUsablePrice",
               "Racy"
             ]
           }
