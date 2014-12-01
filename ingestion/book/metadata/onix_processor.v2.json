@@ -10,7 +10,11 @@
       "id": "randomhouse_uk"
     }
   ],
-  "format": "digital",
+  "format": {
+    "epubType": "029",
+    "productForm": "DG",
+    "marvinIncompatible": false
+  },
   "title": "Two Heads are Better Than One",
   "related": [
     {
@@ -46,18 +50,44 @@
       "code": "FIC050000"
     }
   ],
-  "regionalRights": {
-    "GB": true,
-    "IE": true,
-    "ROW": false
+  "supplyRights": {
+    "WORLD": true
   },
-  "descriptions": [],
+  "salesRights": {
+    "WORLD": true
+  },
+  "descriptions": {
+    "best": [
+      {
+        "realm": "onix-codelist-33",
+        "id": "03"
+      }
+    ],
+    "items": [
+      {
+        "classification": [
+          {
+            "realm": "onix-codelist-33",
+            "id": "03"
+          }
+        ],
+        "type": "03",
+        "content": "Description about the book"
+      }
+    ]
+  },
+  "languages": [
+    "eng"
+  ],
+  "originalLanguages": [
+    "fre"
+  ],
   "prices": [
     {
       "amount": 1.00,
       "currency": "GBP",
-      "includesTax?": true,
-      "agency?": true,
+      "includesTax": true,
+      "isAgency": true,
       "applicableRegions": {
         "GB": true,
         "ROW": false
@@ -68,7 +98,7 @@
           "rate": "S",
           "taxableAmount": 0.83,
           "amount": 0.17,
-          "percent": 20
+          "percent": 0.2
         }
       ]
     }

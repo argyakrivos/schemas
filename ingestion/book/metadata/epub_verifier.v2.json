@@ -11,24 +11,25 @@
     }
   ],
   "media": {
-    "epubs": [
-      {
-        "classification": [
-          {
-            "realm": "type",
-            "id": "origin"
-          }
-        ],
-        "uris": [
-          {
-            "type": "static",
-            "uri": "http://container.azure.com/path/to/file.epub"
-          }
-        ],
-        "wordCount": 37462,
-        "size": 25485
-      }
-    ]
+    "epubs": {
+      "items": [
+        {
+          "classification": [
+            {
+              "realm": "epub_id",
+              "id": "hjhj1212"
+            },
+            {
+              "realm": "type",
+              "id": "origin"
+            }
+          ],
+          "token": "bbbmap:publishers:popo5656",
+          "wordCount": 37462,
+          "size": 25485
+        }
+      ]
+    }
   },
   "source": {
     "deliveredAt": "2014-06-23T13:22:17.35Z",
