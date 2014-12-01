@@ -19,21 +19,7 @@
             "id": "front_cover"
           }
         ],
-        "uris": [
-          {
-            "type": "resource_server",
-            "uri": "https://media.blinkboxbooks.com/path/to/file.png"
-          },
-          {
-            "type": "static",
-            "uri": "http://container.azure.com/path/to/file.jpg"
-          },
-          {
-            "type": "static",
-            "uri": "http://container.azure.com/path/to/file.jpg",
-            "params": "img:m=scale;img:w=300;v=0"
-          }
-        ],
+        "token": "bbbmap:covers:abcd1234",
         "width": 1200,
         "height": 2500,
         "size": 25485

@@ -88,15 +88,15 @@
       "required": ["deliveredAt", "role", "username"],
       "additionalProperties": false
     },
+    "storage_token": {
+      "title": "A virtual URI which refers to a file stored with the storage service.",
+      "type": "string",
+      "format": "uri"
+    },
     "image_media": {
       "title": "This holds info about one or more images and can be applied to a book or a contributor.",
-      "type": "object",
-      "properties": {
-        "images": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/image_item" }
-        }
-      }
+      "type": "array",
+      "items": { "$ref": "#/definitions/image_item" }
     },
     "image_item": {
       "title": "An image media element.",
@@ -111,36 +111,14 @@
           "title": "The height of the image in pixels.",
           "type": "integer"
         }
-      },
-      "additionalProperties": { "$ref": "#/definitions/media_item" }
+      }
     },
     "media_item": {
       "title": "A mix-in for describing media items.",
-      // NB. Whatever you mix this into needs to define whether additionalProperties are allowed as this does not.
       "type": "object",
       "properties": {
         "classification":  { "$ref": "#/definitions/classification" },
-        "uris": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "enum": ["static", "resource_server"]
-              },
-              "uri": {
-                "type": "string",
-                "format": "uri"
-              },
-              "params": {
-                "type": "string",
-                "format": "resource server params"
-              }
-            },
-            "required": ["type", "uri"],
-            "additionalProperties": false
-          }
-        },
+        "token": { "$ref": "#/definitions/storage_token" },
         "size": {
           "title": "The size of the asset in bytes",
           "type": "integer"
@@ -150,7 +128,7 @@
           "$ref": "#/definitions/source"
         }
       },
-      "required": ["classification", "uris", "size"],
+      "required": ["classification", "token", "size"],
       "additionalProperties": false
     },
     "regions": {
