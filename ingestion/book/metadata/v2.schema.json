@@ -179,6 +179,32 @@
         "additionalProperties": false
       }
     },
+    "prizes": {
+      "title": "Prizes this book has received or was considered for",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "The name of the prize",
+            "type": "string"
+          },
+          "year": {
+            "title": "The year this book was considered for this prize",
+            "type": "integer"
+          },
+          "country": {
+            "title": "The country in which the prize originates",
+            "type": "string"
+          },
+          "level": {
+            "title": "Whether the book received the prize, was a runner up, was shortlisted etc. Uses Onix codelist 41",
+            "enum": ["01", "02", "03", "04", "05", "06", "07"]
+          }
+        },
+        "required": ["name", "year"]
+      }
+    },
     "statistics": {
       "title": "An as-yet undefined list of statistics",
       "type": "object",
