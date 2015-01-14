@@ -75,7 +75,7 @@
       "title": "The media types that can be associated with this contributor.",
       "type": "object",
       "properties": {
-        "images": { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
+        "images": { "$ref": "../../common/v2.schema.json#/definitions/imageMedia" }
       },
       "additionalProperties": false
     },
