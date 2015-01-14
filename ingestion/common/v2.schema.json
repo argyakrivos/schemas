@@ -30,9 +30,9 @@
     },
     "source": {
       "title": "Contains information about the provenance of the data in this document. This will be an object with each value detailing the provenance of data for its corresponding key.",
-      "$ref": "#/definitions/source_description"
+      "$ref": "#/definitions/sourceDescription"
     },
-    "source_description": {
+    "sourceDescription": {
       "type": "object",
       "properties": {
         "deliveredAt": {
@@ -88,21 +88,21 @@
       "required": ["deliveredAt", "role", "username"],
       "additionalProperties": false
     },
-    "storage_token": {
+    "storageToken": {
       "title": "A virtual URI which refers to a file stored with the storage service.",
       "type": "string",
       "format": "uri"
     },
-    "image_media": {
+    "imageMedia": {
       "title": "This holds info about one or more images and can be applied to a book or a contributor.",
       "type": "array",
-      "items": { "$ref": "#/definitions/image_item" }
+      "items": { "$ref": "#/definitions/imageItem" }
     },
-    "image_item": {
+    "imageItem": {
       "title": "An image media element.",
       "type": "object",
       "properties": {
-        "$ref": "#/definitions/media_item",
+        "$ref": "#/definitions/mediaItem",
         "width": {
           "title": "The width of the image in pixels.",
           "type": "integer"
@@ -113,12 +113,12 @@
         }
       }
     },
-    "media_item": {
+    "mediaItem": {
       "title": "A mix-in for describing media items.",
       "type": "object",
       "properties": {
         "classification":  { "$ref": "#/definitions/classification" },
-        "token": { "$ref": "#/definitions/storage_token" },
+        "token": { "$ref": "#/definitions/storageToken" },
         "size": {
           "title": "The size of the asset in bytes",
           "type": "integer"

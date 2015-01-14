@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "source": {
-      "$ref": "../../common/v2.schema.json#/definitions/source_description"
+      "$ref": "../../common/v2.schema.json#/definitions/sourceDescription"
     }
   },
   "required": ["source"],

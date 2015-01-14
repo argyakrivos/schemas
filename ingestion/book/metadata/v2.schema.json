@@ -241,7 +241,7 @@
           "type": "integer",
           "mimumum": 0
         },
-        "smog_grade": {
+        "smogGrade": {
           "title": "An estimate of the SMOG grade of the entire body of text.",
           "type": "number"
         },
@@ -337,8 +337,8 @@
     "media": {
       "type": "object",
       "properties": {
-        "epubs": { "$ref": "#/definitions/epub_media" },
-        "images": { "$ref": "../../common/v2.schema.json#/definitions/image_media" }
+        "epubs": { "$ref": "#/definitions/epubMedia" },
+        "images": { "$ref": "../../common/v2.schema.json#/definitions/imageMedia" }
       },
       "additionalProperties": false
     },
@@ -382,19 +382,19 @@
   "required": ["classification", "source", "$schema"],
   "additionalProperties": false,
   "definitions": {
-    "epub_media": {
+    "epubMedia": {
       "title": "This holds info about the epubs associated with this book, as well as the revision that should be considered the current one.",
       "type": "object",
       "properties": {
         "best": { "$ref": "../../common/v2.schema.json#/definitions/classification" },
         "items": {
           "type": "array",
-          "items": { "$ref": "#/definitions/epub_item" }
+          "items": { "$ref": "#/definitions/epubItem" }
         }
       },
       "additionalProperties": false
     },
-    "epub_item": {
+    "epubItem": {
       "title": "The additional components of the media item which are specific to epubs.",
       "type": "object",
       "properties": {
