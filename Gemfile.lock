@@ -1,6 +1,5 @@
 GEM
-  remote: http://artifactory.blinkbox.local/artifactory/api/gems/bbb-gems/
-  remote: http://artifactory.blinkbox.local/artifactory/api/gems/rubygems/
+  remote: https://rubygems.org/
   specs:
     colorize (0.6.0)
     json-schema (2.2.2)
